@@ -1,8 +1,9 @@
 {
 	"name": "nexus",
 	"private": true,
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"type": "module",
+	"homepage": "https://github.com/iagows/nexus_pwa",
 	"scripts": {
 		"dev": "vite",
 		"format": "yarn biome check --write .",
