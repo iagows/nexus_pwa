@@ -16,7 +16,7 @@ import { Outlet } from "react-router-dom";
 import { Constants } from "../constants";
 import AppToolBar from "./AppToolbar";
 import useDrawerStore from "../stores/slices/drawer/useDrawerStore";
-import { routeInfo, SEPARATOR } from "./RouteNames";
+import { routeInfo } from "./RouteNames";
 
 const DRAWER_CSS_MOBILE_DISPLAY = {
 	display: { xs: "block", sm: "none" },
@@ -83,11 +83,11 @@ const AppDrawer = () => {
 								index
 							}`}
 						>
-							{item.map((listItem) => (
+							{item.map(({ icon: LocalIcon, ...listItem }) => (
 								<ListItem key={listItem.menu} disablePadding>
 									<ListItemButton>
 										<ListItemIcon>
-											{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+											<LocalIcon />
 										</ListItemIcon>
 										<ListItemText primary={listItem.menu} />
 									</ListItemButton>
