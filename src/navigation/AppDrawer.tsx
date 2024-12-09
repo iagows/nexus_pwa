@@ -52,7 +52,7 @@ const BOX_CSS = {
 } as const;
 
 const drawer = (
-	<div>
+	<>
 		<Toolbar />
 		<Divider />
 		<List>
@@ -93,11 +93,11 @@ const drawer = (
 				</ListItem>
 			))}
 		</List>
-	</div>
+	</>
 );
 
 const AppDrawer = () => {
-	const { isMobileOpen, setClosing, setMobileOpen } = useDrawerStore();
+	const { isMobileOpen, setMobileOpen, setClosing } = useDrawerStore();
 
 	const handleDrawerClose = () => {
 		setClosing(true);

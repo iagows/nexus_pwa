@@ -10,13 +10,14 @@ const BAR_CSS = {
 const ICON_CSS = { mr: 2, display: { sm: "none" } };
 
 const AppToolBar = () => {
-	const { isClosing, invertClosing } = useDrawerStore();
+	const { isClosing, setMobileOpen, isMobileOpen } = useDrawerStore();
 
 	const handleDrawerToggle = () => {
 		if (!isClosing) {
-			invertClosing();
+			setMobileOpen(!isMobileOpen);
 		}
 	};
+
 	return (
 		<AppBar position="fixed" sx={BAR_CSS}>
 			<Toolbar>
