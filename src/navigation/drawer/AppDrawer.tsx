@@ -1,22 +1,9 @@
-import MailIcon from "@mui/icons-material/Mail";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import {
-	Box,
-	CssBaseline,
-	Divider,
-	Drawer,
-	List,
-	ListItem,
-	ListItemButton,
-	ListItemIcon,
-	ListItemText,
-	Toolbar,
-} from "@mui/material";
+import { Box, CssBaseline, Drawer, Toolbar } from "@mui/material";
 import { Outlet } from "react-router-dom";
-import { Constants } from "../constants";
-import AppToolBar from "./AppToolbar";
-import useDrawerStore from "../stores/slices/drawer/useDrawerStore";
-import { routeInfo } from "./RouteNames";
+import { Constants } from "../../constants";
+import useDrawerStore from "../../stores/slices/drawer/useDrawerStore";
+import AppToolBar from "../AppToolbar";
+import DrawerOrganizer from "./DrawerOrganizer";
 
 const DRAWER_CSS_MOBILE_DISPLAY = {
 	display: { xs: "block", sm: "none" },
@@ -52,6 +39,14 @@ const BOX_CSS = {
 	flexShrink: { sm: 0 },
 } as const;
 
+const BOX_SX_CSS = {
+	p: 3,
+	flexGrow: 1,
+	width: { sm: `calc(100% - ${Constants.DRAWER_WIDTH}px)` },
+} as const;
+
+const BOX_FLEX = { display: "flex" } as const;
+
 const AppDrawer = () => {
 	const { isMobileOpen, setMobileOpen, setClosing } = useDrawerStore();
 
@@ -64,44 +59,8 @@ const AppDrawer = () => {
 		setClosing(false);
 	};
 
-	const drawer = (
-		<>
-			<Toolbar />
-			<Divider />
-			{routeInfo().map((item, index) => {
-				return (
-					<>
-						<Divider
-							key={`div_${
-								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-								index
-							}`}
-						/>
-						<List
-							key={`list_${
-								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-								index
-							}`}
-						>
-							{item.map(({ icon: LocalIcon, ...listItem }) => (
-								<ListItem key={listItem.menu} disablePadding>
-									<ListItemButton>
-										<ListItemIcon>
-											<LocalIcon />
-										</ListItemIcon>
-										<ListItemText primary={listItem.menu} />
-									</ListItemButton>
-								</ListItem>
-							))}
-						</List>
-					</>
-				);
-			})}
-		</>
-	);
-
 	return (
-		<Box sx={{ display: "flex" }}>
+		<Box sx={BOX_FLEX}>
 			<CssBaseline />
 			<AppToolBar />
 			<Box component="nav" sx={BOX_CSS} aria-label="mailbox folders">
@@ -113,20 +72,13 @@ const AppDrawer = () => {
 					ModalProps={KEEP_MOUNTED}
 					sx={DRAWER_CSS_MOBILE}
 				>
-					{drawer}
+					<DrawerOrganizer />
 				</Drawer>
 				<Drawer variant="permanent" sx={DRAWER_CSS_OTHER} open>
-					{drawer}
+					<DrawerOrganizer />
 				</Drawer>
 			</Box>
-			<Box
-				component="main"
-				sx={{
-					flexGrow: 1,
-					p: 3,
-					width: { sm: `calc(100% - ${Constants.DRAWER_WIDTH}px)` },
-				}}
-			>
+			<Box component="main" sx={BOX_SX_CSS}>
 				<Toolbar />
 				<Outlet />
 			</Box>

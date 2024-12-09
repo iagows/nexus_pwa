@@ -17,17 +17,14 @@ const useDrawerStore = (): Out => {
 	const { isClosing, isMobileOpen } = useAppSelector((state) => state.drawer);
 
 	const invertClosing = () => {
-		console.log("invert");
 		dispatch(storeInvert());
 	};
 
 	const setClosing = (closing: boolean) => {
-		console.log("close", closing);
 		dispatch(storeSetClosing(closing));
 	};
 
 	const setMobileOpen = (open: boolean) => {
-		console.log("mobile", open);
 		dispatch(storeSetMobileOpen(open));
 	};
 

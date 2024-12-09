@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import AppDrawer from "../navigation/AppDrawer";
+import AppDrawer from "../navigation/drawer/AppDrawer";
 
 const MainPage = () => {
 	return (
