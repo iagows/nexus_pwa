@@ -14,8 +14,8 @@ import {
 } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import { Constants } from "../constants";
-import useDrawer from "../stores/DrawerStore";
 import AppToolBar from "./AppToolbar";
+import useDrawerStore from "../stores/slices/drawer/useDrawerStore";
 
 const DRAWER_CSS_MOBILE_DISPLAY = {
 	display: { xs: "block", sm: "none" },
@@ -36,6 +36,7 @@ const DRAWER_CSS_MOBILE = {
 	...DRAWER_CSS_MOBILE_DISPLAY,
 	...DRAWER_CSS_PAPER,
 } as const;
+
 const DRAWER_CSS_OTHER = {
 	...DRAWER_CSS_OTHER_DISPLAY,
 	...DRAWER_CSS_PAPER,
@@ -50,8 +51,53 @@ const BOX_CSS = {
 	flexShrink: { sm: 0 },
 } as const;
 
+const drawer = (
+	<div>
+		<Toolbar />
+		<Divider />
+		<List>
+			{["Ficha atual", "Fichas", "Editar ficha"].map((text, index) => (
+				<ListItem key={text} disablePadding>
+					<ListItemButton>
+						<ListItemIcon>
+							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+						</ListItemIcon>
+						<ListItemText primary={text} />
+					</ListItemButton>
+				</ListItem>
+			))}
+		</List>
+		<Divider />
+		<List>
+			{["Criar habilidade", "Quebrar objeto"].map((text, index) => (
+				<ListItem key={text} disablePadding>
+					<ListItemButton>
+						<ListItemIcon>
+							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+						</ListItemIcon>
+						<ListItemText primary={text} />
+					</ListItemButton>
+				</ListItem>
+			))}
+		</List>
+		<Divider />
+		<List>
+			{["Configurações", "Sobre"].map((text, index) => (
+				<ListItem key={text} disablePadding>
+					<ListItemButton>
+						<ListItemIcon>
+							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+						</ListItemIcon>
+						<ListItemText primary={text} />
+					</ListItemButton>
+				</ListItem>
+			))}
+		</List>
+	</div>
+);
+
 const AppDrawer = () => {
-	const { isMobileOpen, setClosing, setMobileOpen } = useDrawer();
+	const { isMobileOpen, setClosing, setMobileOpen } = useDrawerStore();
 
 	const handleDrawerClose = () => {
 		setClosing(true);
@@ -61,51 +107,6 @@ const AppDrawer = () => {
 	const handleDrawerTransitionEnd = () => {
 		setClosing(false);
 	};
-
-	const drawer = (
-		<div>
-			<Toolbar />
-			<Divider />
-			<List>
-				{["Ficha atual", "Fichas", "Editar ficha"].map((text, index) => (
-					<ListItem key={text} disablePadding>
-						<ListItemButton>
-							<ListItemIcon>
-								{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-							</ListItemIcon>
-							<ListItemText primary={text} />
-						</ListItemButton>
-					</ListItem>
-				))}
-			</List>
-			<Divider />
-			<List>
-				{["Criar habilidade", "Quebrar objeto"].map((text, index) => (
-					<ListItem key={text} disablePadding>
-						<ListItemButton>
-							<ListItemIcon>
-								{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-							</ListItemIcon>
-							<ListItemText primary={text} />
-						</ListItemButton>
-					</ListItem>
-				))}
-			</List>
-			<Divider />
-			<List>
-				{["Configurações", "Sobre"].map((text, index) => (
-					<ListItem key={text} disablePadding>
-						<ListItemButton>
-							<ListItemIcon>
-								{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-							</ListItemIcon>
-							<ListItemText primary={text} />
-						</ListItemButton>
-					</ListItem>
-				))}
-			</List>
-		</div>
-	);
 
 	return (
 		<Box sx={{ display: "flex" }}>

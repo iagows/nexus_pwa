@@ -1,7 +1,7 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import { Constants } from "../constants";
-import useDrawer from "../stores/DrawerStore";
+import useDrawerStore from "../stores/slices/drawer/useDrawerStore";
 
 const BAR_CSS = {
 	width: { sm: `calc(100% - ${Constants.DRAWER_WIDTH}px)` },
@@ -10,7 +10,7 @@ const BAR_CSS = {
 const ICON_CSS = { mr: 2, display: { sm: "none" } };
 
 const AppToolBar = () => {
-	const { isClosing, invertClosing } = useDrawer();
+	const { isClosing, invertClosing } = useDrawerStore();
 
 	const handleDrawerToggle = () => {
 		if (!isClosing) {

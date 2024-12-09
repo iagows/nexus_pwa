@@ -1,9 +1,11 @@
-const lista = ["fulano", "cicrano", "beltrano"];
+import useFichaStore from "../stores/slices/ficha/useFichaStore";
+
 const Fichas = () => {
+	const { list } = useFichaStore();
 	return (
 		<>
-			{lista.map((char) => (
-				<p key={char}>{char}</p>
+			{list.map((char) => (
+				<p key={char.nome}>{char.nome}</p>
 			))}
 		</>
 	);

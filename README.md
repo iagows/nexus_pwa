@@ -21,9 +21,9 @@ Somente tecnicismos aqui. Vá jogar RPG, vá.
 O que pretendo fazer:
 
 - [ ] Criar a base do projeto
-  - [x] Bibliotecas necessárias (zod, zustand, vite-pwa...)
+  - [x] Bibliotecas necessárias (zod, redux toolkit, vite-pwa...)
   - [ ] Favicon
-  - [ ] PWA
+  - [x] PWA
 - [ ] Menu lateral
   - [ ] Ícone de nexus
     - [ ] Talvez um link para site/instagram de Nexus caso surja
