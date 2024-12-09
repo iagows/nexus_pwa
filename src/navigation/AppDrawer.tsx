@@ -16,6 +16,7 @@ import { Outlet } from "react-router-dom";
 import { Constants } from "../constants";
 import AppToolBar from "./AppToolbar";
 import useDrawerStore from "../stores/slices/drawer/useDrawerStore";
+import { routeInfo, SEPARATOR } from "./RouteNames";
 
 const DRAWER_CSS_MOBILE_DISPLAY = {
 	display: { xs: "block", sm: "none" },
@@ -51,51 +52,6 @@ const BOX_CSS = {
 	flexShrink: { sm: 0 },
 } as const;
 
-const drawer = (
-	<>
-		<Toolbar />
-		<Divider />
-		<List>
-			{["Ficha atual", "Fichas", "Editar ficha"].map((text, index) => (
-				<ListItem key={text} disablePadding>
-					<ListItemButton>
-						<ListItemIcon>
-							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-						</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItemButton>
-				</ListItem>
-			))}
-		</List>
-		<Divider />
-		<List>
-			{["Criar habilidade", "Quebrar objeto"].map((text, index) => (
-				<ListItem key={text} disablePadding>
-					<ListItemButton>
-						<ListItemIcon>
-							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-						</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItemButton>
-				</ListItem>
-			))}
-		</List>
-		<Divider />
-		<List>
-			{["Configurações", "Sobre"].map((text, index) => (
-				<ListItem key={text} disablePadding>
-					<ListItemButton>
-						<ListItemIcon>
-							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-						</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItemButton>
-				</ListItem>
-			))}
-		</List>
-	</>
-);
-
 const AppDrawer = () => {
 	const { isMobileOpen, setMobileOpen, setClosing } = useDrawerStore();
 
@@ -107,6 +63,42 @@ const AppDrawer = () => {
 	const handleDrawerTransitionEnd = () => {
 		setClosing(false);
 	};
+
+	const drawer = (
+		<>
+			<Toolbar />
+			<Divider />
+			{routeInfo().map((item, index) => {
+				return (
+					<>
+						<Divider
+							key={`div_${
+								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+								index
+							}`}
+						/>
+						<List
+							key={`list_${
+								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+								index
+							}`}
+						>
+							{item.map((listItem) => (
+								<ListItem key={listItem.menu} disablePadding>
+									<ListItemButton>
+										<ListItemIcon>
+											{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+										</ListItemIcon>
+										<ListItemText primary={listItem.menu} />
+									</ListItemButton>
+								</ListItem>
+							))}
+						</List>
+					</>
+				);
+			})}
+		</>
+	);
 
 	return (
 		<Box sx={{ display: "flex" }}>
