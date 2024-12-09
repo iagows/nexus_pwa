@@ -1,11 +1,11 @@
-import BlurOnOutlinedIcon from "@mui/icons-material/BlurOnOutlined";
 import ArchitectureOutlinedIcon from "@mui/icons-material/ArchitectureOutlined";
+import BlurOnOutlinedIcon from "@mui/icons-material/BlurOnOutlined";
+import ContactPageOutlinedIcon from "@mui/icons-material/ContactPageOutlined";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import type { SvgIconTypeMap } from "@mui/material";
 import type { OverridableComponent } from "@mui/material/OverridableComponent";
-import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
-import ContactPageOutlinedIcon from "@mui/icons-material/ContactPageOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 
 enum RouteNames {
 	ROOT = "/",
@@ -21,7 +21,7 @@ enum RouteNames {
 export default RouteNames;
 
 export type RouteInfoType = {
-	menu: string;
+	text: string;
 	url: string;
 	// biome-ignore lint/complexity/noBannedTypes: <explanation>
 	icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>;
@@ -31,7 +31,7 @@ export const routeInfo = (id = "", edit = false): RouteInfoType[][] => {
 	const atual: RouteInfoType | null =
 		id !== ""
 			? {
-					menu: "Ficha Atual",
+					text: "Ficha Atual",
 					url: `${RouteNames.FICHA.replace(":id", id)}`,
 					icon: ContactPageOutlinedIcon,
 				}
@@ -41,31 +41,31 @@ export const routeInfo = (id = "", edit = false): RouteInfoType[][] => {
 		[
 			atual,
 			{
-				menu: "Fichas",
+				text: "Fichas",
 				url: RouteNames.FICHAS,
 				icon: MenuBookOutlinedIcon,
-			},
+			} as RouteInfoType,
 		].filter((item) => item !== null),
 		[
 			{
-				menu: "Habilidades",
+				text: "Habilidades",
 				url: RouteNames.HABILIDADES,
 				icon: ArchitectureOutlinedIcon,
 			},
 			{
-				menu: "Quebrar objeto",
+				text: "Quebrar objeto",
 				url: RouteNames.QUEBRAR,
 				icon: BlurOnOutlinedIcon,
 			},
 		],
 		[
 			{
-				menu: "Configurações",
+				text: "Configurações",
 				url: RouteNames.CONFIGURACOES,
 				icon: SettingsOutlinedIcon,
 			},
 			{
-				menu: "Sobre",
+				text: "Sobre",
 				url: RouteNames.SOBRE,
 				icon: InfoOutlinedIcon,
 			},

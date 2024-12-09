@@ -11,7 +11,7 @@ const DrawerList = ({ items }: Props) => {
 			<Divider />
 			<List>
 				{items.map((listItem) => (
-					<DrawerLocalItem item={listItem} key={listItem.menu} />
+					<DrawerLocalItem item={listItem} key={listItem.text} />
 				))}
 			</List>
 		</>
