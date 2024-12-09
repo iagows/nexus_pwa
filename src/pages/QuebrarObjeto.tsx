@@ -1,6 +1,6 @@
 import usePageStore from "../stores/slices/pages/usePageStore";
 
-const QuebrarObjetos = () => {
+const QuebrarObjeto = () => {
 	const { setTitle } = usePageStore();
 
 	setTitle("Quebrar objeto");
@@ -8,4 +8,4 @@ const QuebrarObjetos = () => {
 	return <></>;
 };
 
-export default QuebrarObjetos;
+export default QuebrarObjeto;
