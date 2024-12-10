@@ -1,13 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import drawer from "./slices/drawer";
 import ficha from "./slices/ficha";
-import page from "./slices/pages";
 
 export const store = configureStore({
 	reducer: combineReducers({
 		drawer,
 		ficha,
-		page,
 	}),
 });
 

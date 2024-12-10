@@ -2,7 +2,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import { Constants } from "../constants";
 import useDrawerStore from "../stores/slices/drawer/useDrawerStore";
-import usePageStore from "../stores/slices/pages/usePageStore";
+import useRouteData from "../hooks/useRouteData";
 
 const BAR_CSS = {
 	width: { sm: `calc(100% - ${Constants.DRAWER_WIDTH}px)` },
@@ -11,7 +11,7 @@ const BAR_CSS = {
 const ICON_CSS = { mr: 2, display: { sm: "none" } };
 
 const AppToolBar = () => {
-	const { title } = usePageStore();
+	const { pageTitle } = useRouteData();
 	const { isClosing, setMobileOpen, isMobileOpen } = useDrawerStore();
 
 	const handleDrawerToggle = () => {
@@ -33,7 +33,7 @@ const AppToolBar = () => {
 					<MenuIcon />
 				</IconButton>
 				<Typography variant="h6" noWrap component="div">
-					{title}
+					{pageTitle}
 				</Typography>
 			</Toolbar>
 		</AppBar>

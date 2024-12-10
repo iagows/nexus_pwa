@@ -1,13 +1,14 @@
 import { Divider, Toolbar } from "@mui/material";
-import { routeInfo } from "../RouteNames";
 import DrawerList from "./DrawerList";
+import useRouteData from "../../hooks/useRouteData";
 
 const DrawerOrganizer = () => {
+	const { routeInfo } = useRouteData();
 	return (
 		<>
 			<Toolbar />
 			<Divider />
-			{routeInfo().map((item, i) => (
+			{routeInfo.map((item, i) => (
 				<DrawerList
 					items={item}
 					key={`dl-${
