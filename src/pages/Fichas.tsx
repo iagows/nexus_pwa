@@ -7,7 +7,10 @@ const Fichas = () => {
 
 	return (
 		<>
-			<AppToolBar title="Fichas" />
+			<AppToolBar title="Fichas">
+				<BodyText>Teste</BodyText>
+			</AppToolBar>
+
 			<BodyText>Fichas</BodyText>
 			{list.map((char) => (
 				<p key={char.nome}>{char.nome}</p>
