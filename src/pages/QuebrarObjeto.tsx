@@ -1,5 +1,12 @@
+import AppToolBar from "../navigation/AppToolbar";
+
 const QuebrarObjeto = () => {
-	return <></>;
+	return (
+		<>
+			<AppToolBar />
+			<p>Quebrar objeto</p>
+		</>
+	);
 };
 
 export default QuebrarObjeto;

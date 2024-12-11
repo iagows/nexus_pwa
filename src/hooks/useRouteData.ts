@@ -64,7 +64,7 @@ const useRouteData = (): Out => {
 
 	const pageTitle =
 		routeInfo.flat(1).filter((item) => item.url === location.pathname)?.[0]
-			.text ?? "";
+			?.text ?? "Nexus";
 	return {
 		routeInfo,
 		pageTitle,

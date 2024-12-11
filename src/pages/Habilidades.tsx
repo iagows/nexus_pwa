@@ -1,5 +1,12 @@
+import AppToolBar from "../navigation/AppToolbar";
+
 const Habilidades = () => {
-	return <></>;
+	return (
+		<>
+			<AppToolBar />
+			<p>Habilidades</p>
+		</>
+	);
 };
 
 export default Habilidades;

@@ -1,5 +1,12 @@
+import AppToolBar from "../navigation/AppToolbar";
+
 const Sobre = () => {
-	return <></>;
+	return (
+		<>
+			<AppToolBar />
+			<p>Sobre</p>
+		</>
+	);
 };
 
 export default Sobre;
