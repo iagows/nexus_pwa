@@ -3,7 +3,7 @@ import AppToolBar from "../navigation/AppToolbar";
 const QuebrarObjeto = () => {
 	return (
 		<>
-			<AppToolBar />
+			<AppToolBar title="Quebrar objeto" />
 			<p>Quebrar objeto</p>
 		</>
 	);

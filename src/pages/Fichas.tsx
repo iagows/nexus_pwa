@@ -1,3 +1,4 @@
+import BodyText from "../components/BodyText";
 import AppToolBar from "../navigation/AppToolbar";
 import useFichaStore from "../stores/slices/ficha/useFichaStore";
 
@@ -6,8 +7,8 @@ const Fichas = () => {
 
 	return (
 		<>
-			<AppToolBar />
-			<p>Fichas</p>
+			<AppToolBar title="Fichas" />
+			<BodyText>Fichas</BodyText>
 			{list.map((char) => (
 				<p key={char.nome}>{char.nome}</p>
 			))}

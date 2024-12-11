@@ -3,7 +3,7 @@ import AppToolBar from "../navigation/AppToolbar";
 const Config = () => {
 	return (
 		<>
-			<AppToolBar />
+			<AppToolBar title="Configurações" />
 			<p>Config</p>
 		</>
 	);

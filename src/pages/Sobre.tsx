@@ -3,7 +3,7 @@ import AppToolBar from "../navigation/AppToolbar";
 const Sobre = () => {
 	return (
 		<>
-			<AppToolBar />
+			<AppToolBar title="Sobre" />
 			<p>Sobre</p>
 		</>
 	);

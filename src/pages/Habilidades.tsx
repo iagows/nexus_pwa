@@ -3,7 +3,7 @@ import AppToolBar from "../navigation/AppToolbar";
 const Habilidades = () => {
 	return (
 		<>
-			<AppToolBar />
+			<AppToolBar title="Habilidades" />
 			<p>Habilidades</p>
 		</>
 	);

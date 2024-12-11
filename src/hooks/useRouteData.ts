@@ -7,7 +7,7 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import MenuBookOutlinedIcon from "@mui/icons-material/MenuBookOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 
-const getRouteInfo = (id = "", edit = false): RouteInfoType[][] => {
+const getRouteInfo = (id = ""): RouteInfoType[][] => {
 	const atual: RouteInfoType | null =
 		id !== ""
 			? {
@@ -55,19 +55,13 @@ const getRouteInfo = (id = "", edit = false): RouteInfoType[][] => {
 
 type Out = {
 	routeInfo: RouteInfoType[][];
-	pageTitle: string;
 };
 const useRouteData = (): Out => {
-	const location = useLocation();
-
+	const location = useLocation(); //consider page to disable menu
 	const routeInfo = getRouteInfo();
 
-	const pageTitle =
-		routeInfo.flat(1).filter((item) => item.url === location.pathname)?.[0]
-			?.text ?? "Nexus";
 	return {
 		routeInfo,
-		pageTitle,
 	};
 };
 
