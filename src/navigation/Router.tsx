@@ -1,4 +1,8 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+	Navigate,
+	RouterProvider,
+	createBrowserRouter,
+} from "react-router-dom";
 import MainPage from "../pages/MainPage";
 import RouteNames from "./RouteNames";
 import ErrorPage from "../pages/ErrorPage";
@@ -18,6 +22,10 @@ const router = createBrowserRouter(
 			errorElement: <ErrorPage />,
 			children: [
 				{
+					index: true, // Define a rota padrão
+					element: <Navigate to={RouteNames.FICHAS} replace />,
+				},
+				{
 					path: RouteNames.FICHAS,
 					element: <Fichas />,
 				},
@@ -36,6 +44,10 @@ const router = createBrowserRouter(
 				{
 					path: RouteNames.SOBRE,
 					element: <Sobre />,
+				},
+				{
+					path: "*",
+					element: <Navigate to={RouteNames.FICHAS} replace />,
 				},
 			],
 		},
