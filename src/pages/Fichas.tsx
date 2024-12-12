@@ -1,4 +1,5 @@
-import BodyText from "../components/BodyText";
+import AddIcon from "@mui/icons-material/Add";
+import { IconButton } from "@mui/material";
 import AppToolBar from "../navigation/AppToolbar";
 import useFichaStore from "../stores/slices/ficha/useFichaStore";
 
@@ -8,10 +9,11 @@ const Fichas = () => {
 	return (
 		<>
 			<AppToolBar title="Fichas">
-				<BodyText>Teste</BodyText>
+				<IconButton aria-label="delete" disabled>
+					<AddIcon />
+				</IconButton>
 			</AppToolBar>
 
-			<BodyText>Fichas</BodyText>
 			{list.map((char) => (
 				<p key={char.nome}>{char.nome}</p>
 			))}
