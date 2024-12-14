@@ -22,7 +22,7 @@ O que pretendo fazer:
 
 - [ ] Criar a base do projeto
   - [x] Bibliotecas necessárias (zod, redux toolkit, vite-pwa...)
-  - [ ] Favicon
+  - [x] Favicon
   - [x] PWA
 - [ ] Menu lateral
   - [ ] Ícone de nexus

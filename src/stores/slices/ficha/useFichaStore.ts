@@ -5,7 +5,7 @@ import { toArray } from "../../../util/functions";
 import type { CrudType } from "../CrudTypes";
 import {
 	create as createFicha,
-	delete_ as deleteFicha,
+	remove as removeFicha,
 	invertFavorite,
 	update as updateFicha,
 	selectAll,
@@ -16,12 +16,12 @@ import {
 type Out = CrudType<Ficha> & {
 	changeFav: (id: string) => void;
 	total: number;
+	isEmpty: boolean;
 };
 
 const useFichaStore = (): Out => {
 	const dispatch = useAppDispatch();
 	const list: Ficha[] = useAppSelector((state) => selectAll(state.ficha));
-	// const fichasId = useAppSelector(state => selectById(state.fichas,))
 	const total = useAppSelector((state) => selectTotal(state.ficha));
 
 	function create(datum: Ficha): void {
@@ -29,20 +29,18 @@ const useFichaStore = (): Out => {
 	}
 
 	function read(ids: SingleOrArray<string>): Ficha[] {
-		console.log({ ids });
-		// const lista = toArray(ids);
-		// return list.filter(
-		// 	(ficha) => lista.findIndex((l) => ficha.id === l) !== -1,
-		// );
-		return [];
+		const lista = toArray(ids);
+		return list.filter(
+			(ficha) => lista.findIndex((l) => ficha.id === l) !== -1,
+		);
 	}
 
 	function update(obj: SingleOrArray<Ficha>): void {
 		dispatch(updateFicha(toArray(obj)));
 	}
 
-	function delete_(ids: SingleOrArray<string>): void {
-		dispatch(deleteFicha(toArray(ids)));
+	function remove(ids: SingleOrArray<string>): void {
+		dispatch(removeFicha(toArray(ids)));
 	}
 
 	function changeFav(id: string): void {
@@ -54,9 +52,10 @@ const useFichaStore = (): Out => {
 		total,
 		read,
 		update,
-		delete_,
+		remove,
 		create,
 		changeFav,
+		isEmpty: total === 0,
 	};
 };
 

@@ -6,7 +6,7 @@ import {
 import MainPage from "../pages/MainPage";
 import RouteNames from "./RouteNames";
 import ErrorPage from "../pages/ErrorPage";
-import Fichas from "../pages/Fichas";
+import Fichas from "../pages/ficha/Fichas";
 import Config from "../pages/Config";
 import Habilidades from "../pages/Habilidades";
 import QuebrarObjeto from "../pages/QuebrarObjeto";

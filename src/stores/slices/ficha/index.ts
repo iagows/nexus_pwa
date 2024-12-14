@@ -27,8 +27,8 @@ const fichasSlice = createSlice({
 	// https://redux-toolkit.js.org/api/createslice/
 	reducers: {
 		create: adapter.addOne,
+		remove: adapter.removeMany,
 		update: adapter.addMany,
-		delete_: adapter.removeMany,
 		invertFavorite: (state, action: PayloadAction<string>) => {
 			adapter.updateOne(state, {
 				id: action.payload,
@@ -41,5 +41,5 @@ const fichasSlice = createSlice({
 });
 
 export default fichasSlice.reducer;
-export const { create, update, delete_, invertFavorite } = fichasSlice.actions;
+export const { create, update, remove, invertFavorite } = fichasSlice.actions;
 export const { selectAll, selectById, selectTotal } = adapter.getSelectors();

@@ -11,12 +11,14 @@ export enum ModoDaFicha {
 const FichaDTO = z
 	.object({
 		xp: z.number(),
-		modo: z.nativeEnum(ModoDaFicha),
 		nome: z.string(),
 		nivel: z.number(),
 		criacao: z.string(),
 		narrador: z.string(),
+		descricao: z.string(),
+		imagem: z.string().optional(),
 		ultimaVisualizacao: z.string(),
+		modo: z.nativeEnum(ModoDaFicha),
 		isFavorito: z.boolean().optional(),
 	})
 	.merge(IdDTO);

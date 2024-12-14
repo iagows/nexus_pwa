@@ -24,13 +24,13 @@ const useMain = () => {
 
 const MainPage = () => {
 	const isPageFichas = useMain();
-	const { list } = useFichaStore();
+	const { isEmpty } = useFichaStore();
 
 	return (
 		<Box
 			display={"flex"}
 			flexDirection={"column"}
-			sx={isPageFichas ? bgCss(list.length === 0) : null}
+			sx={isPageFichas ? bgCss(isEmpty) : null}
 		>
 			<Box display={"flex"}>
 				<AppMainLayout />

@@ -6,5 +6,5 @@ export type CrudType<T extends IdType> = {
 	create: (datum: T) => void;
 	read: (id: SingleOrArray<string>) => T[];
 	update: (datum: SingleOrArray<T>) => void;
-	delete_: (id: SingleOrArray<string>) => void;
+	remove: (id: SingleOrArray<string>) => void;
 };
