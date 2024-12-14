@@ -4,8 +4,9 @@ import {
 	ListItemIcon,
 	ListItemText,
 } from "@mui/material";
-import type { RouteInfoType } from "../RouteNames";
+import type { JSX } from "react";
 import { Link } from "react-router-dom";
+import type { RouteInfoType } from "../RouteNames";
 
 type Props = {
 	item: RouteInfoType;

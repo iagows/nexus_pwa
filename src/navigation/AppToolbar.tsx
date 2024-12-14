@@ -5,12 +5,11 @@ import {
 	type SxProps,
 	type Theme,
 	Toolbar,
-	Typography,
 } from "@mui/material";
 import type { PropsWithChildren } from "react";
+import ToolbarTitle from "../components/ToolbarTitle";
 import { Constants } from "../constants";
 import useDrawerStore from "../stores/slices/drawer/useDrawerStore";
-import ToolbarTitle from "../components/ToolbarTitle";
 
 const BAR_CSS: SxProps<Theme> = {
 	width: { sm: `calc(100% - ${Constants.DRAWER_WIDTH}px)` },
