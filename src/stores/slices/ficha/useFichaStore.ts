@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import type { Ficha } from "../../../models/FichaDTO";
 import type { SingleOrArray } from "../../../util/commonTypes";
@@ -12,14 +13,17 @@ import {
 	// selectById,
 	selectTotal,
 } from "./index";
+import RouteNames from "../../../navigation/RouteNames";
 
 type Out = CrudType<Ficha> & {
 	changeFav: (id: string) => void;
 	total: number;
 	isEmpty: boolean;
+	isPageFichas: boolean;
 };
 
 const useFichaStore = (): Out => {
+	const location = useLocation();
 	const dispatch = useAppDispatch();
 	const list: Ficha[] = useAppSelector((state) => selectAll(state.ficha));
 	const total = useAppSelector((state) => selectTotal(state.ficha));
@@ -56,6 +60,7 @@ const useFichaStore = (): Out => {
 		create,
 		changeFav,
 		isEmpty: total === 0,
+		isPageFichas: location.pathname === RouteNames.FICHAS,
 	};
 };
 
