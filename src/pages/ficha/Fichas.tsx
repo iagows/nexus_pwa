@@ -4,13 +4,17 @@ import FichaFactory from "../../factory/FichaFactory";
 import AppToolBar from "../../navigation/AppToolbar";
 import useFichaStore from "../../stores/slices/ficha/useFichaStore";
 import FichaCard from "./FichaCard";
+import { useNavigate } from "react-router-dom";
 
 const Fichas = () => {
-	const { list } = useFichaStore();
+	const { create, list } = useFichaStore();
+	const navigate = useNavigate();
 
-	const { create } = useFichaStore();
-
-	const createFicha = () => create(FichaFactory());
+	const createFicha = () => {
+		const ficha = FichaFactory();
+		create(ficha);
+		navigate(`/ficha/${ficha.id}?edit=true`);
+	};
 
 	return (
 		<>

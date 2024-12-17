@@ -11,6 +11,7 @@ import Config from "../pages/Config";
 import Habilidades from "../pages/Habilidades";
 import QuebrarObjeto from "../pages/QuebrarObjeto";
 import Sobre from "../pages/Sobre";
+import Ficha from "../pages/ficha/Ficha";
 
 const BASENAME = "/nexus_pwa";
 
@@ -24,6 +25,10 @@ const router = createBrowserRouter(
 				{
 					index: true, // Define a rota padrão
 					element: <Navigate to={RouteNames.FICHAS} replace />,
+				},
+				{
+					path: RouteNames.FICHA,
+					element: <Ficha />,
 				},
 				{
 					path: RouteNames.FICHAS,
