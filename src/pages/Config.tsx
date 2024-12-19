@@ -4,7 +4,7 @@ const Config = () => {
 	return (
 		<>
 			<AppToolBar title="Configurações" />
-			<p>Config</p>
+			<p>fazer</p>
 		</>
 	);
 };

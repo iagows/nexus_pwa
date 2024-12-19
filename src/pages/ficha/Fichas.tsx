@@ -1,19 +1,21 @@
 import AddIcon from "@mui/icons-material/Add";
 import { IconButton, Stack } from "@mui/material";
 import FichaFactory from "../../factory/FichaFactory";
+import useAppNavigate from "../../hooks/useAppNavigate";
 import AppToolBar from "../../navigation/AppToolbar";
+import useEditFicha from "../../stores/slices/edit/useEditFicha";
 import useFichaStore from "../../stores/slices/ficha/useFichaStore";
 import FichaCard from "./FichaCard";
-import { useNavigate } from "react-router-dom";
 
 const Fichas = () => {
-	const { create, list } = useFichaStore();
-	const navigate = useNavigate();
+	const { list } = useFichaStore();
+	const { setCurrent } = useEditFicha();
+	const { goToEditFicha } = useAppNavigate();
 
 	const createFicha = () => {
 		const ficha = FichaFactory();
-		create(ficha);
-		navigate(`/ficha/${ficha.id}?edit=true`);
+		setCurrent(ficha);
+		goToEditFicha(ficha);
 	};
 
 	return (

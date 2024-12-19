@@ -1,11 +1,12 @@
-import { useSearchParams } from "react-router-dom";
+import useAppNavigate, { ParamName } from "../../hooks/useAppNavigate";
+import FichaEdition from "./FichaEdition";
+import FichaView from "./FichaView";
 
 const Ficha = () => {
-	const [searchParams] = useSearchParams();
+	const { getParam } = useAppNavigate();
+	const isEdit = getParam<boolean>(ParamName.EDIT);
 
-	console.log(searchParams.get("edit"));
-
-	return <>oi</>;
+	return <>{isEdit ? <FichaEdition /> : <FichaView />}</>;
 };
 
 export default Ficha;
