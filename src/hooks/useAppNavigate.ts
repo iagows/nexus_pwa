@@ -11,8 +11,6 @@ export type Param = {
 	value: unknown;
 };
 
-const ParamToValue = <T>(param: Param): T => param.value as T;
-
 type Out = {
 	getParams: () => Param[];
 	getParam: <T>(name: ParamName) => T;
