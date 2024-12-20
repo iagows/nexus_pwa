@@ -1,0 +1,52 @@
+[
+	{
+		"id": 1,
+		"nome": "Castidade",
+		"descricao": "Se guarda dos prazeres mundanos em nome de uma causa"
+	},
+	{
+		"id": 2,
+		"nome": "Piedade",
+		"descricao": "Entende que todos erram e pode se redimir"
+	},
+	{
+		"id": 3,
+		"nome": "Caridade",
+		"descricao": "Se dedica apara ajudar aqueles que são mais necessitados"
+	},
+	{
+		"id": 4,
+		"nome": "---",
+		"descricao": "Corrigir uma injustiça cometida an forma correta da lei e das tradições"
+	},
+	{
+		"id": 5,
+		"nome": "Poder",
+		"descricao": "Alcançar o máximo de poder, ficando acima de todos e não respondendo a ninguém"
+	},
+	{
+		"id": 6,
+		"nome": "Riqueza",
+		"descricao": "Acumular bens e posses, tornando-se imensamente rico"
+	},
+	{
+		"id": 7,
+		"nome": "Fama",
+		"descricao": "Ser conhecido, temido e/ou respeitado por todos pelos seus feitos"
+	},
+	{
+		"id": 8,
+		"nome": "Maestria",
+		"descricao": "Adquirir o máximo de experiência e/ou perícia em uma característica específica"
+	},
+	{
+		"id": 9,
+		"nome": "Conhecimento",
+		"descricao": "Absorver o máximo de informação possível sobre um ou mais assuntos"
+	},
+	{
+		"id": 10,
+		"nome": "Paz",
+		"descricao": "Promover e garantir a paz, cessando todos os tipos de hostilidades"
+	}
+]

@@ -1,10 +1,10 @@
+import AgeDTO from "../../models/AgeDTO";
 import InfoDTO from "../../models/InfoDTO";
 import NamedInfoDTO from "../../models/NamedInfoDTO";
+import ages from "./ages.json";
 import antecedents from "./antecedents.json";
 import objectives from "./objectives.json";
 import origins from "./origin.json";
-import ages from "./ages.json";
-import AgeDTO from "../../models/AgeDTO";
 
 const parser = (o: Record<string, unknown>) => InfoDTO.parse(o);
 const namedParser = (o: Record<string, unknown>) => NamedInfoDTO.parse(o);
