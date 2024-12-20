@@ -1,5 +1,5 @@
 import { Autocomplete, TextField } from "@mui/material";
-import { type SyntheticEvent, useState } from "react";
+import { type ChangeEvent, type SyntheticEvent, useState } from "react";
 import AppNumberInput from "../../components/AppNumberInput";
 import AppTooltip from "../../components/AppTooltip";
 import BodyText from "../../components/BodyText";
@@ -10,7 +10,7 @@ import AppToolBar from "../../navigation/AppToolbar";
 
 const handleChangeCreator = <T,>(max: number, setter: (val: T[]) => void) => {
 	return (_: SyntheticEvent<Element, Event>, newValue: T[]) => {
-		if (max > 0 && newValue.length > max) {
+		if (max > -1 && newValue.length > max) {
 			newValue.shift();
 		}
 		setter(newValue);
@@ -18,9 +18,26 @@ const handleChangeCreator = <T,>(max: number, setter: (val: T[]) => void) => {
 };
 
 const FichaEdition = () => {
+	const [age, setAge] = useState<number>(100);
 	const [origin, setOrigin] = useState<Info[]>([]);
 	const [antecedents, setAntecedents] = useState<Info[]>([]);
 	const [objectives, setObjectives] = useState<NamedInfo[]>([]);
+
+	const handleAge = (
+		evt: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+	) => {
+		const {
+			target: { value },
+		} = evt;
+		const val = Number.parseInt(value);
+		const max = PERFIL.getAntecedents(val);
+		if (antecedents.length > max) {
+			const temp = [...antecedents];
+			temp.length = max;
+			setAntecedents(temp);
+		}
+		setAge(val);
+	};
 
 	return (
 		<>
@@ -38,10 +55,11 @@ const FichaEdition = () => {
 			</p>
 			<Autocomplete
 				multiple
+				disableCloseOnSelect
 				id="origens-standard"
 				options={PERFIL.origem}
 				getOptionLabel={(option) => option.descricao}
-				defaultValue={origin}
+				value={origin}
 				renderInput={(params) => (
 					<TextField {...params} variant="standard" label="Origem (2D)" />
 				)}
@@ -49,27 +67,28 @@ const FichaEdition = () => {
 				size="small"
 			/>
 
-			<p>Antecedentes 2D</p>
 			<AppNumberInput
+				value={age}
 				aria-label="Idade-input"
 				placeholder="Digite a idade..."
+				onChange={handleAge}
 			/>
-			<p>Criança até 10 anos 0x</p>
-			<p>Adolescente, 10~16, 1x</p>
-			<p>Jovem, 17~25, 2x</p>
-			<p>Adulto, 26~40, 3x</p>
-			<p>Velho, 40~60, 4x</p>
-			<p>Muito velho, 60+, 5x</p>
 			<Autocomplete
 				multiple
+				limitTags={2}
+				disableCloseOnSelect
 				id="origens-standard"
 				options={PERFIL.antecedentes}
 				getOptionLabel={(option) => option.descricao}
-				defaultValue={antecedents}
+				disabled={age < 10}
+				value={antecedents}
 				renderInput={(params) => (
 					<TextField {...params} variant="standard" label="Antecedentes (2D)" />
 				)}
-				onChange={handleChangeCreator(2, setAntecedents)}
+				onChange={handleChangeCreator(
+					PERFIL.getAntecedents(age),
+					setAntecedents,
+				)}
 				size="small"
 			/>
 
@@ -78,7 +97,7 @@ const FichaEdition = () => {
 				id="origens-standard"
 				options={PERFIL.objetivos}
 				getOptionLabel={(option) => option.nome}
-				defaultValue={objectives}
+				value={objectives}
 				renderInput={(params) => (
 					<TextField {...params} variant="standard" label="Objetivo (1D)" />
 				)}
@@ -91,7 +110,7 @@ const FichaEdition = () => {
 				id="origens-standard"
 				options={PERFIL.origem}
 				getOptionLabel={(option) => option.descricao}
-				defaultValue={origin}
+				value={origin}
 				renderInput={(params) => (
 					<TextField {...params} variant="standard" label="Virtude (1D)" />
 				)}
@@ -104,7 +123,7 @@ const FichaEdition = () => {
 				id="origens-standard"
 				options={PERFIL.origem}
 				getOptionLabel={(option) => option.descricao}
-				defaultValue={origin}
+				value={origin}
 				renderInput={(params) => (
 					<TextField {...params} variant="standard" label="Defeito (1D)" />
 				)}
@@ -117,7 +136,7 @@ const FichaEdition = () => {
 				id="origens-standard"
 				options={PERFIL.origem}
 				getOptionLabel={(option) => option.descricao}
-				defaultValue={origin}
+				value={origin}
 				renderInput={(params) => (
 					<TextField
 						{...params}
