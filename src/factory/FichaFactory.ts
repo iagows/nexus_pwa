@@ -7,6 +7,7 @@ const FichaFactory = (): Ficha => {
 		xp: 10,
 		nivel: 1,
 		id: nanoid(),
+		origem: [],
 		nome: "Nome",
 		imagem: undefined,
 		isFavorito: false,
