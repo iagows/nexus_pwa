@@ -1,80 +1,78 @@
-{
-	"origins": [
-		{
-			"id": 2,
-			"descricao": "Cometeu um crime hediondo"
-		},
-		{
-			"id": 3,
-			"descricao": "Foi jurado de morte por um inimigo poderoso"
-		},
-		{
-			"id": 4,
-			"descricao": "Foi torturado cruelmente"
-		},
-		{
-			"id": 5,
-			"descricao": "Sofreu uma maldição"
-		},
-		{
-			"id": 6,
-			"descricao": "Sobreviveu a uma catástrofe"
-		},
-		{
-			"id": 7,
-			"descricao": "Perdeu alguém ou algo que amava"
-		},
-		{
-			"id": 8,
-			"descricao": "Foi humilhado publicamente"
-		},
-		{
-			"id": 9,
-			"descricao": "Foi traído por alguém muito querido"
-		},
-		{
-			"id": 10,
-			"descricao": "Esqueceu parte do seu passado"
-		},
-		{
-			"id": 11,
-			"descricao": "Teve um sonho revelador"
-		},
-		{
-			"id": 12,
-			"descricao": "Fez parte de uma organização poderosa"
-		},
-		{
-			"id": 13,
-			"descricao": "Escapou de um cativeiro"
-		},
-		{
-			"id": 14,
-			"descricao": "Descobriu um segredo revelador"
-		},
-		{
-			"id": 15,
-			"descricao": "Foi salvo por um herói"
-		},
-		{
-			"id": 16,
-			"descricao": "Recebeu poderes em troca de servidão"
-		},
-		{
-			"id": 17,
-			"descricao": "Encontrou um artefato poderoso"
-		},
-		{
-			"id": 18,
-			"descricao": "Foi criado para ser um aventureiro"
-		},
-		{
-			"id": 19,
-			"descricao": "Descobriu uma profecia em seu nome"
-		},
-		{
-			"id": 20,
-			"descricao": "Recebeu uma segunda chance para começar a vida"
-		}
-	]
-}
+[
+	{
+		"id": 2,
+		"descricao": "Cometeu um crime hediondo"
+	},
+	{
+		"id": 3,
+		"descricao": "Foi jurado de morte por um inimigo poderoso"
+	},
+	{
+		"id": 4,
+		"descricao": "Foi torturado cruelmente"
+	},
+	{
+		"id": 5,
+		"descricao": "Sofreu uma maldição"
+	},
+	{
+		"id": 6,
+		"descricao": "Sobreviveu a uma catástrofe"
+	},
+	{
+		"id": 7,
+		"descricao": "Perdeu alguém ou algo que amava"
+	},
+	{
+		"id": 8,
+		"descricao": "Foi humilhado publicamente"
+	},
+	{
+		"id": 9,
+		"descricao": "Foi traído por alguém muito querido"
+	},
+	{
+		"id": 10,
+		"descricao": "Esqueceu parte do seu passado"
+	},
+	{
+		"id": 11,
+		"descricao": "Teve um sonho revelador"
+	},
+	{
+		"id": 12,
+		"descricao": "Fez parte de uma organização poderosa"
+	},
+	{
+		"id": 13,
+		"descricao": "Escapou de um cativeiro"
+	},
+	{
+		"id": 14,
+		"descricao": "Descobriu um segredo revelador"
+	},
+	{
+		"id": 15,
+		"descricao": "Foi salvo por um herói"
+	},
+	{
+		"id": 16,
+		"descricao": "Recebeu poderes em troca de servidão"
+	},
+	{
+		"id": 17,
+		"descricao": "Encontrou um artefato poderoso"
+	},
+	{
+		"id": 18,
+		"descricao": "Foi criado para ser um aventureiro"
+	},
+	{
+		"id": 19,
+		"descricao": "Descobriu uma profecia em seu nome"
+	},
+	{
+		"id": 20,
+		"descricao": "Recebeu uma segunda chance para começar a vida"
+	}
+]

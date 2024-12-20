@@ -4,7 +4,8 @@ import AppNumberInput from "../../components/AppNumberInput";
 import AppTooltip from "../../components/AppTooltip";
 import BodyText from "../../components/BodyText";
 import { PERFIL } from "../../data/perfil";
-import type { Origin } from "../../models/OriginDTO";
+import type { Info } from "../../models/InfoDTO";
+import type { NamedInfo } from "../../models/NamedInfoDTO";
 import AppToolBar from "../../navigation/AppToolbar";
 
 const handleChangeCreator = <T,>(max: number, setter: (val: T[]) => void) => {
@@ -17,7 +18,9 @@ const handleChangeCreator = <T,>(max: number, setter: (val: T[]) => void) => {
 };
 
 const FichaEdition = () => {
-	const [origin, setOrigin] = useState<Origin[]>([]);
+	const [origin, setOrigin] = useState<Info[]>([]);
+	const [antecedents, setAntecedents] = useState<Info[]>([]);
+	const [objectives, setObjectives] = useState<NamedInfo[]>([]);
 
 	return (
 		<>
@@ -60,26 +63,26 @@ const FichaEdition = () => {
 			<Autocomplete
 				multiple
 				id="origens-standard"
-				options={PERFIL.origem}
+				options={PERFIL.antecedentes}
 				getOptionLabel={(option) => option.descricao}
-				defaultValue={origin}
+				defaultValue={antecedents}
 				renderInput={(params) => (
 					<TextField {...params} variant="standard" label="Antecedentes (2D)" />
 				)}
-				onChange={handleChangeCreator(2, setOrigin)}
+				onChange={handleChangeCreator(2, setAntecedents)}
 				size="small"
 			/>
 
 			<Autocomplete
 				multiple
 				id="origens-standard"
-				options={PERFIL.origem}
-				getOptionLabel={(option) => option.descricao}
-				defaultValue={origin}
+				options={PERFIL.objetivos}
+				getOptionLabel={(option) => option.nome}
+				defaultValue={objectives}
 				renderInput={(params) => (
 					<TextField {...params} variant="standard" label="Objetivo (1D)" />
 				)}
-				onChange={handleChangeCreator(1, setOrigin)}
+				onChange={handleChangeCreator(1, setObjectives)}
 				size="small"
 			/>
 

@@ -1,0 +1,78 @@
+[
+	{
+		"id": 2,
+		"descricao": "Quase morreu em um acidente"
+	},
+	{
+		"id": 3,
+		"descricao": "Cometeu um crime"
+	},
+	{
+		"id": 4,
+		"descricao": "Perdeu alguém importante"
+	},
+	{
+		"id": 5,
+		"descricao": "Sofreu um grande trauma"
+	},
+	{
+		"id": 6,
+		"descricao": "Ficou preso por um tempo"
+	},
+	{
+		"id": 7,
+		"descricao": "Foi acometido por uma doença muito grave"
+	},
+	{
+		"id": 8,
+		"descricao": "Decresceu muito de padrão de vida"
+	},
+	{
+		"id": 9,
+		"descricao": "Foi envolvido em um escândalo"
+	},
+	{
+		"id": 10,
+		"descricao": "Foi acusado injustamente de algo"
+	},
+	{
+		"id": 11,
+		"descricao": "Apaixonou-se perdidamente por alguém"
+	},
+	{
+		"id": 12,
+		"descricao": "Fez uma viagem muito longa"
+	},
+	{
+		"id": 13,
+		"descricao": "Ajudou pessoas em necessidade"
+	},
+	{
+		"id": 14,
+		"descricao": "Presenciou um evento importante"
+	},
+	{
+		"id": 15,
+		"descricao": "Participou de um grande conflito"
+	},
+	{
+		"id": 16,
+		"descricao": "Passou um tempo recluso"
+	},
+	{
+		"id": 17,
+		"descricao": "Fez uma amizade importante"
+	},
+	{
+		"id": 18,
+		"descricao": "Foi ajudado por um patrono influente"
+	},
+	{
+		"id": 19,
+		"descricao": "Melhorou muito de padrão de vida"
+	},
+	{
+		"id": 20,
+		"descricao": "Treinou com um mestre importante"
+	}
+]
