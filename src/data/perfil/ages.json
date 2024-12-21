@@ -1,0 +1,30 @@
+[
+	{
+		"to": 10,
+		"antecedents": 0
+	},
+	{
+		"from": 11,
+		"to": 16,
+		"antecedents": 1
+	},
+	{
+		"from": 17,
+		"to": 25,
+		"antecedents": 2
+	},
+	{
+		"from": 26,
+		"to": 40,
+		"antecedents": 3
+	},
+	{
+		"from": 41,
+		"to": 60,
+		"antecedents": 4
+	},
+	{
+		"from": 61,
+		"antecedents": 5
+	}
+]
