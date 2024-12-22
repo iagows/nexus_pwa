@@ -1,5 +1,15 @@
-import { Autocomplete, Button, TextField } from "@mui/material";
-import { type ChangeEvent, type SyntheticEvent, useState } from "react";
+import {
+	Autocomplete,
+	Button,
+	TextField,
+	type AutocompleteProps,
+} from "@mui/material";
+import {
+	type ChangeEvent,
+	ElementType,
+	type SyntheticEvent,
+	useState,
+} from "react";
 import AppNumberInput from "../../components/AppNumberInput";
 import AppTooltip from "../../components/AppTooltip";
 import BodyText from "../../components/BodyText";
