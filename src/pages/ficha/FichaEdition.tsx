@@ -1,4 +1,4 @@
-import { Autocomplete, TextField } from "@mui/material";
+import { Autocomplete, Button, TextField } from "@mui/material";
 import { type ChangeEvent, type SyntheticEvent, useState } from "react";
 import AppNumberInput from "../../components/AppNumberInput";
 import AppTooltip from "../../components/AppTooltip";
@@ -24,6 +24,7 @@ const FichaEdition = () => {
 	const [objectives, setObjectives] = useState<NamedInfo[]>([]);
 	const [virtues, setVirtues] = useState<NamedInfo[]>([]);
 	const [defeitos, setDefeitos] = useState<NamedInfo[]>([]);
+	const [peculiaridades, setPeculiaridades] = useState<Info[]>([]);
 
 	const handleAge = (
 		evt: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
@@ -44,17 +45,16 @@ const FichaEdition = () => {
 	return (
 		<>
 			<AppToolBar title="Edição - Perfil" />
-			<BodyText>
+			<BodyText sx={{ display: "flex", alignItems: "center" }}>
 				Lembre-se que o narrador deve aprovar{" "}
 				<AppTooltip
 					title="Por que o Narrador deve aprovar?"
 					text="NEXUS é um sistema genérico, criado para abranger inúmeros estilos de jogo. Mas o Narrador é quem vai determinar onde a aventura se passa e os personagens devem fazer sentido no mundo que ele está criando."
 				/>
 			</BodyText>
-			<p>
-				dar a opção de fazer manualmente ou 'digitar a idade', apertar um botão
-				e o resto é automático
-			</p>
+			<Button type="button" disabled>
+				Sortear
+			</Button>
 			<Autocomplete
 				multiple
 				disableCloseOnSelect
@@ -93,6 +93,7 @@ const FichaEdition = () => {
 				)}
 				size="small"
 			/>
+			<BodyText>{antecedents.map((a) => a.descricao).join("; ")}</BodyText>
 
 			<Autocomplete
 				multiple
@@ -144,10 +145,11 @@ const FichaEdition = () => {
 
 			<Autocomplete
 				multiple
+				disableCloseOnSelect
 				id="origens-standard"
-				options={PERFIL.origem}
+				options={PERFIL.peculiaridades}
 				getOptionLabel={(option) => option.descricao}
-				value={origin}
+				value={peculiaridades}
 				renderInput={(params) => (
 					<TextField
 						{...params}
@@ -155,9 +157,11 @@ const FichaEdition = () => {
 						label="Peculiaridades (4D)"
 					/>
 				)}
-				onChange={handleChangeCreator(-1, setOrigin)}
+				onChange={handleChangeCreator(-1, setPeculiaridades)}
 				size="small"
+				limitTags={2}
 			/>
+			<BodyText>{peculiaridades.map((a) => a.descricao).join("; ")}</BodyText>
 		</>
 	);
 };

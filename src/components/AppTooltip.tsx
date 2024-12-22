@@ -1,4 +1,5 @@
 import {
+	ClickAwayListener,
 	IconButton,
 	styled,
 	Tooltip,
@@ -8,6 +9,7 @@ import {
 } from "@mui/material";
 import BodyText from "./BodyText";
 import InfoIcon from "@mui/icons-material/Info";
+import { useState } from "react";
 
 const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
 	<Tooltip {...props} classes={{ popper: className }} />
@@ -26,19 +28,34 @@ type Props = {
 	text: string;
 };
 const AppTooltip = ({ title, text }: Props) => {
+	const [open, setOpen] = useState(false);
+
+	const handleTooltipClose = () => {
+		setOpen(false);
+	};
+
+	const handleTooltipOpen = () => {
+		setOpen(true);
+	};
+
 	return (
-		<HtmlTooltip
-			title={
-				<>
-					<Typography color="inherit">{title}</Typography>
-					<BodyText>{text}</BodyText>
-				</>
-			}
-		>
-			<IconButton size="small">
-				<InfoIcon />
-			</IconButton>
-		</HtmlTooltip>
+		<ClickAwayListener onClickAway={handleTooltipClose}>
+			<div role="presentation">
+				<HtmlTooltip
+					open={open}
+					title={
+						<>
+							<Typography color="inherit">{title}</Typography>
+							<BodyText>{text}</BodyText>
+						</>
+					}
+				>
+					<IconButton size="small" onClick={handleTooltipOpen}>
+						<InfoIcon />
+					</IconButton>
+				</HtmlTooltip>
+			</div>
+		</ClickAwayListener>
 	);
 };
 

@@ -10,6 +10,7 @@ const ProfileDTO = z.object({
 	objectives: z.array(NamedInfoDTO),
 	virtues: z.array(NamedInfoDTO),
 	flaws: z.array(NamedInfoDTO),
+	peculiarities: z.array(InfoDTO),
 });
 
 type Profile = z.infer<typeof ProfileDTO>;

@@ -19,6 +19,7 @@ const fichaFactory = (): Ficha => {
 			description: "",
 			virtues: [],
 			flaws: [],
+			peculiarities: [],
 		},
 		modo: ModoDaFicha.CRIACAO,
 		criacao: DateUtil.nowString(),
