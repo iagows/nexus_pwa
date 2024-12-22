@@ -16,37 +16,37 @@
 	},
 	{
 		"id": 4,
-		"nome": "---",
-		"descricao": "Corrigir uma injustiça cometida an forma correta da lei e das tradições"
+		"nome": "Honestidade",
+		"descricao": "Cultiva a verdade como única forma de solucionar os problemas"
 	},
 	{
 		"id": 5,
-		"nome": "Poder",
-		"descricao": "Alcançar o máximo de poder, ficando acima de todos e não respondendo a ninguém"
+		"nome": "Bondade",
+		"descricao": "Defende os mais fracos e oprimidos a qualquer custo"
 	},
 	{
 		"id": 6,
-		"nome": "Riqueza",
-		"descricao": "Acumular bens e posses, tornando-se imensamente rico"
+		"nome": "Coragem",
+		"descricao": "Enfrenta os perigos de frente, sem medo e sem subterfúgios"
 	},
 	{
 		"id": 7,
-		"nome": "Fama",
-		"descricao": "Ser conhecido, temido e/ou respeitado por todos pelos seus feitos"
+		"nome": "Humildade",
+		"descricao": "Sabe que todos são dependentes uns dos outros e não se acha melhor que ninguém"
 	},
 	{
 		"id": 8,
-		"nome": "Maestria",
-		"descricao": "Adquirir o máximo de experiência e/ou perícia em uma característica específica"
+		"nome": "Paciência",
+		"descricao": "Sabe esperar e ouvir porque existe tempo para tudo na vida, inclusive para falar e agir"
 	},
 	{
 		"id": 9,
-		"nome": "Conhecimento",
-		"descricao": "Absorver o máximo de informação possível sobre um ou mais assuntos"
+		"nome": "Fé",
+		"descricao": "Confia em algo com muito fervor e deposita toda sua certeza nisso"
 	},
 	{
 		"id": 10,
-		"nome": "Paz",
-		"descricao": "Promover e garantir a paz, cessando todos os tipos de hostilidades"
+		"nome": "Justiça",
+		"descricao": "Busca agir em conformidade com a lei e as tradições pois apenas a ordem nos diferencia de animais"
 	}
 ]

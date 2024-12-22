@@ -5,6 +5,8 @@ import ages from "./ages.json";
 import antecedents from "./antecedents.json";
 import objectives from "./objectives.json";
 import origins from "./origin.json";
+import virtues from "./virtues.json";
+import flaws from "./flaw.json";
 
 const parser = (o: Record<string, unknown>) => InfoDTO.parse(o);
 const namedParser = (o: Record<string, unknown>) => NamedInfoDTO.parse(o);
@@ -31,6 +33,8 @@ export const PERFIL = {
 	origem: origins.map(parser),
 	antecedentes: antecedents.map(parser),
 	objetivos: objectives.map(namedParser),
+	virtudes: virtues.map(namedParser),
+	defeitos: flaws.map(namedParser),
 	getAntecedents: (age: number) => {
 		const found = parsed.find((range) =>
 			isInInterval(age, range.from, range.to),

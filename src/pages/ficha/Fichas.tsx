@@ -1,6 +1,6 @@
 import AddIcon from "@mui/icons-material/Add";
 import { IconButton, Stack } from "@mui/material";
-import FichaFactory from "../../factory/FichaFactory";
+import fichaFactory from "../../factory/fichaFactory";
 import useAppNavigate from "../../hooks/useAppNavigate";
 import AppToolBar from "../../navigation/AppToolbar";
 import useEditFicha from "../../stores/slices/edit/useEditFicha";
@@ -13,7 +13,7 @@ const Fichas = () => {
 	const { goToEditFicha } = useAppNavigate();
 
 	const createFicha = () => {
-		const ficha = FichaFactory();
+		const ficha = fichaFactory();
 		setCurrent(ficha);
 		goToEditFicha(ficha);
 	};

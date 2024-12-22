@@ -18,10 +18,12 @@ const handleChangeCreator = <T,>(max: number, setter: (val: T[]) => void) => {
 };
 
 const FichaEdition = () => {
-	const [age, setAge] = useState<number>(100);
+	const [age, setAge] = useState<number>(500);
 	const [origin, setOrigin] = useState<Info[]>([]);
 	const [antecedents, setAntecedents] = useState<Info[]>([]);
 	const [objectives, setObjectives] = useState<NamedInfo[]>([]);
+	const [virtues, setVirtues] = useState<NamedInfo[]>([]);
+	const [defeitos, setDefeitos] = useState<NamedInfo[]>([]);
 
 	const handleAge = (
 		evt: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
@@ -104,32 +106,41 @@ const FichaEdition = () => {
 				onChange={handleChangeCreator(1, setObjectives)}
 				size="small"
 			/>
+			{objectives.map((obj) => (
+				<BodyText key={obj.id}>{obj.descricao}</BodyText>
+			))}
 
 			<Autocomplete
 				multiple
 				id="origens-standard"
-				options={PERFIL.origem}
-				getOptionLabel={(option) => option.descricao}
-				value={origin}
+				options={PERFIL.virtudes}
+				getOptionLabel={(option) => option.nome}
+				value={virtues}
 				renderInput={(params) => (
 					<TextField {...params} variant="standard" label="Virtude (1D)" />
 				)}
-				onChange={handleChangeCreator(1, setOrigin)}
+				onChange={handleChangeCreator(1, setVirtues)}
 				size="small"
 			/>
+			{virtues.map((obj) => (
+				<BodyText key={obj.id}>{obj.descricao}</BodyText>
+			))}
 
 			<Autocomplete
 				multiple
 				id="origens-standard"
-				options={PERFIL.origem}
-				getOptionLabel={(option) => option.descricao}
-				value={origin}
+				options={PERFIL.defeitos}
+				getOptionLabel={(option) => option.nome}
+				value={defeitos}
 				renderInput={(params) => (
 					<TextField {...params} variant="standard" label="Defeito (1D)" />
 				)}
-				onChange={handleChangeCreator(1, setOrigin)}
+				onChange={handleChangeCreator(1, setDefeitos)}
 				size="small"
 			/>
+			{defeitos.map((obj) => (
+				<BodyText key={obj.id}>{obj.descricao}</BodyText>
+			))}
 
 			<Autocomplete
 				multiple

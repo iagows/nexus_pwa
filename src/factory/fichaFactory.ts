@@ -2,21 +2,28 @@ import { nanoid } from "@reduxjs/toolkit";
 import { type Ficha, ModoDaFicha } from "../models/FichaDTO";
 import { DateUtil } from "../util/DateUtil";
 
-const FichaFactory = (): Ficha => {
+const fichaFactory = (): Ficha => {
 	return {
 		xp: 10,
 		nivel: 1,
 		id: nanoid(),
-		origem: [],
 		nome: "Nome",
 		imagem: undefined,
 		isFavorito: false,
 		narrador: "Alguém",
-		descricao: "Descrição",
+		profile: {
+			age: 500,
+			origin: [],
+			objectives: [],
+			antecedents: [],
+			description: "",
+			virtues: [],
+			flaws: [],
+		},
 		modo: ModoDaFicha.CRIACAO,
 		criacao: DateUtil.nowString(),
 		ultimaVisualizacao: DateUtil.nowString(),
 	};
 };
 
-export default FichaFactory;
+export default fichaFactory;

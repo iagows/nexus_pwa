@@ -1,6 +1,6 @@
 import { z } from "zod";
-import InfoDTO from "./InfoDTO";
 import { IdDTO } from "./abstract/IdDTO";
+import ProfileDTO from "./ProfileDTO";
 
 export enum ModoDaFicha {
 	CRIACAO = "Criação",
@@ -15,9 +15,8 @@ const FichaDTO = z
 		nome: z.string(),
 		nivel: z.number(),
 		criacao: z.string(),
+		profile: ProfileDTO,
 		narrador: z.string(),
-		descricao: z.string(),
-		origem: z.array(InfoDTO),
 		imagem: z.string().optional(),
 		ultimaVisualizacao: z.string(),
 		modo: z.nativeEnum(ModoDaFicha),

@@ -1,9 +1,9 @@
 import { type PayloadAction, createSlice } from "@reduxjs/toolkit";
-import FichaFactory from "../../../factory/FichaFactory";
+import fichaFactory from "../../../factory/fichaFactory";
 import type { Ficha } from "../../../models/FichaDTO";
 
 const INITIAL = {
-	current: FichaFactory(),
+	current: fichaFactory(),
 };
 
 const slice = createSlice({

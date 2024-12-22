@@ -1,0 +1,52 @@
+[
+	{
+		"id": 1,
+		"nome": "Crueldade",
+		"descricao": "Secretamente (ou não) sente algum prazer em ver o sofrimento alheio"
+	},
+	{
+		"id": 2,
+		"nome": "Mentira",
+		"descricao": "Sabe que a verdade é apenas uma questão de quem tem condições de sustentar a estória dita"
+	},
+	{
+		"id": 3,
+		"nome": "Arrogância",
+		"descricao": "Sabe que está acima dos outros e deve ser tratado de forma adequada sempre"
+	},
+	{
+		"id": 4,
+		"nome": "Luxúria",
+		"descricao": "Conhece os prazeres mundanos e não quer (nem consegue) se afastar deles"
+	},
+	{
+		"id": 5,
+		"nome": "Ganância",
+		"descricao": "Dinheiro é o melhor argumento que existe, então é melhor sempre ter mais argumento"
+	},
+	{
+		"id": 6,
+		"nome": "Ira",
+		"descricao": "Se algo está incomodando então deve ser destruído, pura e simplesmente"
+	},
+	{
+		"id": 7,
+		"nome": "Preguiça",
+		"descricao": "Por que se dar ao trabalho de fazer algo se pode pedir a outra pessoa para fazer por você?"
+	},
+	{
+		"id": 8,
+		"nome": "Vingança",
+		"descricao": "Cada ato cometido deve ser devolvido em igual ou maior proporção"
+	},
+	{
+		"id": 9,
+		"nome": "Loucura",
+		"descricao": "Hoje o dia está doce, mas livros com páginas de bolhas de sabão são tristes em meses de preto"
+	},
+	{
+		"id": 10,
+		"nome": "Covardia",
+		"descricao": "Por que arriscar minha vida, o bem mais precioso que tenho?"
+	}
+]
