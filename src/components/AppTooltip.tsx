@@ -40,7 +40,7 @@ const AppTooltip = ({ title, text }: Props) => {
 
 	return (
 		<ClickAwayListener onClickAway={handleTooltipClose}>
-			<div role="presentation">
+			<span role="presentation">
 				<HtmlTooltip
 					open={open}
 					title={
@@ -54,7 +54,7 @@ const AppTooltip = ({ title, text }: Props) => {
 						<InfoIcon />
 					</IconButton>
 				</HtmlTooltip>
-			</div>
+			</span>
 		</ClickAwayListener>
 	);
 };

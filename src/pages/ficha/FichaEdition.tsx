@@ -65,6 +65,7 @@ const FichaEdition = () => {
 			<Button type="button" disabled>
 				Sortear
 			</Button>
+
 			<Autocomplete
 				multiple
 				disableCloseOnSelect
