@@ -1,14 +1,12 @@
 import { Autocomplete, Box, Button, TextField } from "@mui/material";
-import { type ChangeEvent, type SyntheticEvent, useState } from "react";
+import type { ChangeEvent, SyntheticEvent } from "react";
 import AppNumberInput from "../../components/AppNumberInput";
 import AppTooltip from "../../components/AppTooltip";
 import BodyText from "../../components/BodyText";
-import { PERFIL } from "../../data/perfil";
-import type { Info } from "../../models/InfoDTO";
-import type { NamedInfo } from "../../models/NamedInfoDTO";
-import AppToolBar from "../../navigation/AppToolbar";
-import useEditFicha from "../../stores/slices/edit/useEditFicha";
 import ProfileMapper from "../../components/ProfileMapper";
+import { PERFIL } from "../../data/perfil";
+import type { Profile } from "../../models/ProfileDTO";
+import AppToolBar from "../../navigation/AppToolbar";
 
 const handleChangeCreator = <T,>(max: number, setter: (val: T[]) => void) => {
 	return (_: SyntheticEvent<Element, Event>, newValue: T[]) => {
@@ -19,21 +17,24 @@ const handleChangeCreator = <T,>(max: number, setter: (val: T[]) => void) => {
 	};
 };
 
-const FichaEdition = () => {
-	const {
-		current: { profile },
-	} = useEditFicha();
+type Props = {
+	profile: Profile;
+	onProfile: (prof: Partial<Profile>) => void;
+};
 
-	const [age, setAge] = useState<number>(profile.age);
-	const [origin, setOrigin] = useState<Info[]>(profile.origin);
-	const [antecedents, setAntecedents] = useState<Info[]>(profile.antecedents);
-	const [objectives, setObjectives] = useState<NamedInfo[]>(profile.objectives);
-	const [virtues, setVirtues] = useState<NamedInfo[]>(profile.virtues);
-	const [defeitos, setDefeitos] = useState<NamedInfo[]>(profile.flaws);
-	const [peculiaridades, setPeculiaridades] = useState<Info[]>(
-		profile.peculiarities,
-	);
-
+const FichaEdition = ({
+	profile: {
+		age,
+		antecedents,
+		description,
+		flaws,
+		objectives,
+		origin,
+		peculiarities,
+		virtues,
+	},
+	onProfile,
+}: Props) => {
 	const handleAge = (
 		evt: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
 	) => {
@@ -42,12 +43,16 @@ const FichaEdition = () => {
 		} = evt;
 		const val = Number.parseInt(value);
 		const max = PERFIL.getAntecedents(val);
+		const temp = [...antecedents];
+
 		if (antecedents.length > max) {
-			const temp = [...antecedents];
 			temp.length = max;
-			setAntecedents(temp);
 		}
-		setAge(val);
+
+		onProfile({
+			antecedents: temp,
+			age: val,
+		});
 	};
 
 	return (
@@ -79,7 +84,7 @@ const FichaEdition = () => {
 					renderInput={(params) => (
 						<TextField {...params} variant="standard" label="Origem (2D)" />
 					)}
-					onChange={handleChangeCreator(2, setOrigin)}
+					onChange={handleChangeCreator(2, (o) => onProfile({ origin: o }))}
 					size="small"
 				/>
 
@@ -106,9 +111,8 @@ const FichaEdition = () => {
 								label="Antecedentes (2D)"
 							/>
 						)}
-						onChange={handleChangeCreator(
-							PERFIL.getAntecedents(age),
-							setAntecedents,
+						onChange={handleChangeCreator(PERFIL.getAntecedents(age), (a) =>
+							onProfile({ antecedents: a }),
 						)}
 						size="small"
 					/>
@@ -125,7 +129,9 @@ const FichaEdition = () => {
 						renderInput={(params) => (
 							<TextField {...params} variant="standard" label="Objetivo (1D)" />
 						)}
-						onChange={handleChangeCreator(1, setObjectives)}
+						onChange={handleChangeCreator(1, (o) =>
+							onProfile({ objectives: o }),
+						)}
 						size="small"
 					/>
 					<ProfileMapper data={objectives} />
@@ -141,7 +147,7 @@ const FichaEdition = () => {
 						renderInput={(params) => (
 							<TextField {...params} variant="standard" label="Virtude (1D)" />
 						)}
-						onChange={handleChangeCreator(1, setVirtues)}
+						onChange={handleChangeCreator(1, (v) => onProfile({ virtues: v }))}
 						size="small"
 					/>
 					<ProfileMapper data={virtues} />
@@ -153,14 +159,14 @@ const FichaEdition = () => {
 						id="flaws-standard"
 						options={PERFIL.defeitos}
 						getOptionLabel={(option) => option.nome}
-						value={defeitos}
+						value={flaws}
 						renderInput={(params) => (
 							<TextField {...params} variant="standard" label="Defeito (1D)" />
 						)}
-						onChange={handleChangeCreator(1, setDefeitos)}
+						onChange={handleChangeCreator(1, (f) => onProfile({ flaws: f }))}
 						size="small"
 					/>
-					<ProfileMapper data={defeitos} />
+					<ProfileMapper data={flaws} />
 				</Box>
 
 				<Box>
@@ -170,7 +176,7 @@ const FichaEdition = () => {
 						id="peculiarities-standard"
 						options={PERFIL.peculiaridades}
 						getOptionLabel={(option) => option.descricao}
-						value={peculiaridades}
+						value={peculiarities}
 						renderInput={(params) => (
 							<TextField
 								{...params}
@@ -178,11 +184,13 @@ const FichaEdition = () => {
 								label="Peculiaridades (4D)"
 							/>
 						)}
-						onChange={handleChangeCreator(-1, setPeculiaridades)}
+						onChange={handleChangeCreator(-1, (p) =>
+							onProfile({ peculiarities: p }),
+						)}
 						size="small"
 						limitTags={2}
 					/>
-					<ProfileMapper data={peculiaridades} join />
+					<ProfileMapper data={peculiarities} join />
 				</Box>
 			</Box>
 		</>
