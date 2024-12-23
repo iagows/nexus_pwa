@@ -1,6 +1,8 @@
+import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import {
 	Box,
-	Button,
 	Card,
 	CardActionArea,
 	CardActions,
@@ -10,9 +12,6 @@ import {
 	Typography,
 } from "@mui/material";
 import type { Ficha } from "../../models/FichaDTO";
-import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
 type Props = {
 	ficha: Ficha;
@@ -34,7 +33,7 @@ const FichaCard = ({ ficha }: Props) => {
 						{ficha.nome}
 					</Typography>
 					<Typography variant="body2" sx={{ color: "text.secondary" }}>
-						{ficha.descricao}
+						{ficha.profile.description}
 					</Typography>
 				</CardContent>
 			</CardActionArea>

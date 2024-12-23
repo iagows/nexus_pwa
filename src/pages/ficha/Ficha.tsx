@@ -27,7 +27,12 @@ const Ficha = () => {
 		},
 		{
 			label: "Bla",
-			content: <BodyText>Fazer</BodyText>,
+			content: (
+				<>
+					<BodyText>Juntando tudo</BodyText>
+					<BodyText>fazer</BodyText>
+				</>
+			),
 		},
 	];
 
