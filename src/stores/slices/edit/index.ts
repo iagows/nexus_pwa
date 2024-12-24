@@ -4,6 +4,7 @@ import type { Ficha } from "../../../models/FichaDTO";
 
 const INITIAL = {
 	current: fichaFactory(),
+	step: 0,
 };
 
 const slice = createSlice({
@@ -11,10 +12,19 @@ const slice = createSlice({
 	initialState: INITIAL,
 	reducers: {
 		setEdit: (state, action: PayloadAction<Ficha>) => {
-			state.current = action.payload;
+			state.current = {
+				...action.payload,
+			};
+		},
+		nextStep: (state) => {
+			console.log("vai", state.step);
+			state.step = state.step + 1;
+		},
+		prevStep: (state) => {
+			state.step = state.step - 1;
 		},
 	},
 });
 
 export default slice.reducer;
-export const { setEdit } = slice.actions;
+export const { setEdit, nextStep, prevStep } = slice.actions;

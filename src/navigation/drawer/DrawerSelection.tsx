@@ -6,8 +6,8 @@ import {
 	type Theme,
 } from "@mui/material";
 import { Constants } from "../../constants";
-import useDrawerStore from "../../stores/slices/drawer/useDrawerStore";
 import DrawerOrganizer from "./DrawerOrganizer";
+import useDrawer from "./useDrawer";
 
 const DRAWER_CSS_MOBILE_DISPLAY: SxProps<Theme> = {
 	display: { xs: "block", sm: "none" },
@@ -44,23 +44,15 @@ const KEEP_MOUNTED: Partial<ModalProps> = {
 };
 
 const DrawerSelection = () => {
-	const { isMobileOpen, setMobileOpen, setClosing } = useDrawerStore();
+	const { close, isMobileOpen, transitionEnd } = useDrawer();
 
-	const handleDrawerClose = () => {
-		setClosing(true);
-		setMobileOpen(false);
-	};
-
-	const handleDrawerTransitionEnd = () => {
-		setClosing(false);
-	};
 	return (
 		<Box component="nav" sx={BOX_CSS} aria-label="mailbox folders">
 			<Drawer
 				variant="temporary"
 				open={isMobileOpen}
-				onTransitionEnd={handleDrawerTransitionEnd}
-				onClose={handleDrawerClose}
+				onTransitionEnd={transitionEnd}
+				onClose={close}
 				ModalProps={KEEP_MOUNTED}
 				sx={DRAWER_CSS_MOBILE}
 			>

@@ -20,14 +20,17 @@ Somente tecnicismos aqui. Vá jogar RPG, vá.
 
 O que pretendo fazer:
 
-- [ ] Criar a base do projeto
+- [X] Criar a base do projeto
   - [x] Bibliotecas necessárias (zod, redux toolkit, vite-pwa...)
   - [x] Favicon
   - [x] PWA
 - [ ] Menu lateral
+  - [x] Fechar ao selecionar
   - [ ] Ícone de nexus
     - [ ] Talvez um link para site/instagram de Nexus caso surja
   - [ ] Criador de ficha
+    - [ ] Perfil
+    - [ ] Informação
   - [ ] Ficha atual
     - [ ] Mostra a ficha atual no formato de ficha
     - [ ] Botão para imprimir/gerar pdf (sou desses que gosta de riscar)
