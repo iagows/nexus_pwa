@@ -5,6 +5,7 @@ type Props<T extends Info> = {
 	data: T[];
 	join?: boolean;
 };
+
 const ProfileMapper = <T extends Info>({ data, join = false }: Props<T>) => {
 	if (join) {
 		return <BodyText>{data.map((a) => a.descricao).join("; ")}</BodyText>;
@@ -12,7 +13,7 @@ const ProfileMapper = <T extends Info>({ data, join = false }: Props<T>) => {
 	return (
 		<>
 			{data.map((obj) => (
-				<BodyText key={obj.id}>{obj.descricao}</BodyText>
+				<BodyText key={`${obj.id}-${obj.descricao}`}>{obj.descricao}</BodyText>
 			))}
 		</>
 	);
