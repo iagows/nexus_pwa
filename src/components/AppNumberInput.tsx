@@ -1,13 +1,16 @@
-import { FormControl, Input, type InputProps } from "@mui/material";
+import { Input, type InputProps } from "@mui/material";
+import AppFormControl from "./AppFormControl";
 
 const controlKeys = ["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"];
 
 type Props = {
+	label: string;
 	width?: number;
 } & InputProps;
-const AppNumberInput = ({ width, ...props }: Props) => {
+
+const AppNumberInput = ({ label, width, ...props }: Props) => {
 	return (
-		<FormControl sx={{ m: 1, width }}>
+		<AppFormControl label={label}>
 			<Input
 				{...props}
 				inputMode="numeric"
@@ -15,12 +18,9 @@ const AppNumberInput = ({ width, ...props }: Props) => {
 					if (controlKeys.includes(evt.key)) {
 						return;
 					}
-					if (!/^[0-9]$/.test(evt.key)) {
-						evt.preventDefault();
-					}
 				}}
 			/>
-		</FormControl>
+		</AppFormControl>
 	);
 };
 

@@ -8,9 +8,9 @@ import {
 } from "@mui/material";
 import useAppNavigate, { ParamName } from "../../hooks/useAppNavigate";
 import useEditFicha from "../../stores/slices/edit/useEditFicha";
-import FichaEdition from "./FichaEdition";
+import FichaEditionBody from "./FichaEditionBody";
+import FichaEditionProfile from "./FichaEditionProfile";
 import FichaView from "./FichaView";
-import BodyText from "../../components/BodyText";
 
 const Ficha = () => {
 	const { getParam } = useAppNavigate();
@@ -22,17 +22,12 @@ const Ficha = () => {
 		{
 			label: "Perfil",
 			content: (
-				<FichaEdition profile={current.profile} onProfile={setProfile} />
+				<FichaEditionProfile profile={current.profile} onProfile={setProfile} />
 			),
 		},
 		{
-			label: "Bla",
-			content: (
-				<>
-					<BodyText>Juntando tudo</BodyText>
-					<BodyText>fazer</BodyText>
-				</>
-			),
+			label: "Dados",
+			content: <FichaEditionBody />,
 		},
 	];
 
@@ -51,7 +46,9 @@ const Ficha = () => {
 					<Button disabled={step === 0} onClick={goToPreviousStep}>
 						Voltar
 					</Button>
-					<Button onClick={goToNextStep}>Próximo</Button>
+					<Button disabled={step > 0} onClick={goToNextStep}>
+						Próximo
+					</Button>
 				</Box>
 			) : (
 				<FichaView />

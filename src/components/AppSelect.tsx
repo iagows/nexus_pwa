@@ -1,5 +1,4 @@
 import {
-	FormControl,
 	InputLabel,
 	MenuItem,
 	OutlinedInput,
@@ -10,6 +9,7 @@ import {
 } from "@mui/material";
 import type { Info } from "../models/InfoDTO";
 import type { NamedInfo } from "../models/NamedInfoDTO";
+import AppFormControl from "./AppFormControl";
 import ProfileMapper from "./ProfileMapper";
 
 const ITEM_HEIGHT = 48;
@@ -52,14 +52,12 @@ type Props<T extends Info | NamedInfo> = {
 	onChange: (val: T[]) => void;
 	label: string;
 	max?: number;
-	width?: number;
 	describe: "hide" | "normal" | "join";
 };
 
 const AppSelect = <T extends Info | NamedInfo>({
 	list,
 	max = -1,
-	width = 600,
 	label,
 	current,
 	onChange,
@@ -67,8 +65,7 @@ const AppSelect = <T extends Info | NamedInfo>({
 }: Props<T>) => {
 	const theme = useTheme();
 	return (
-		<FormControl sx={{ m: 1, width }}>
-			<InputLabel id={label}>{label}</InputLabel>
+		<AppFormControl label={label}>
 			<Select
 				labelId={label}
 				id="multi-select"
@@ -95,7 +92,7 @@ const AppSelect = <T extends Info | NamedInfo>({
 			{describe !== "hide" && (
 				<ProfileMapper data={current} join={describe === "join"} />
 			)}
-		</FormControl>
+		</AppFormControl>
 	);
 };
 

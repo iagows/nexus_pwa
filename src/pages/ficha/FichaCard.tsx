@@ -9,16 +9,27 @@ import {
 	CardContent,
 	CardMedia,
 	IconButton,
+	type SxProps,
+	type Theme,
 	Typography,
 } from "@mui/material";
 import type { Ficha } from "../../models/FichaDTO";
 
+const CARD_CSS: SxProps<Theme> = {
+	width: 345,
+};
+
+const CARD_DESCRIPTION_CSS: SxProps<Theme> = {
+	color: "text.secondary",
+};
+
 type Props = {
 	ficha: Ficha;
 };
+
 const FichaCard = ({ ficha }: Props) => {
 	return (
-		<Card sx={{ width: 345 }}>
+		<Card sx={CARD_CSS}>
 			<CardActionArea>
 				{ficha.imagem && (
 					<CardMedia
@@ -32,7 +43,7 @@ const FichaCard = ({ ficha }: Props) => {
 					<Typography gutterBottom variant="h5" component="div">
 						{ficha.nome}
 					</Typography>
-					<Typography variant="body2" sx={{ color: "text.secondary" }}>
+					<Typography variant="body2" sx={CARD_DESCRIPTION_CSS}>
 						{ficha.profile.description}
 					</Typography>
 				</CardContent>

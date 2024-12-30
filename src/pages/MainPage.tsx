@@ -1,9 +1,7 @@
 import { Box, type SxProps, type Theme } from "@mui/material";
-import { useLocation } from "react-router-dom";
 import empty from "../assets/images/empty.jpg";
 import nonEmpty from "../assets/images/non-empty.jpg";
 import AppMainLayout from "../navigation/AppMainLayout";
-import RouteNames from "../navigation/RouteNames";
 import useFichaStore from "../stores/slices/ficha/useFichaStore";
 
 const FIXED_CSS: SxProps<Theme> = {
@@ -23,6 +21,11 @@ const bgCss: (isEmpty: boolean) => SxProps<Theme> = (isEmpty) => ({
 	backgroundImage: `url(${isEmpty ? empty : nonEmpty})`,
 });
 
+const FLEX_CSS: SxProps<Theme> = {
+	display: "flex",
+	alignSelf: "flex-start",
+};
+
 const MainPage = () => {
 	const { isEmpty, isPageFichas } = useFichaStore();
 
@@ -32,7 +35,7 @@ const MainPage = () => {
 			flexDirection={"column"}
 			sx={isPageFichas ? bgCss(isEmpty) : FIXED_CSS}
 		>
-			<Box display={"flex"}>
+			<Box sx={FLEX_CSS}>
 				<AppMainLayout />
 			</Box>
 		</Box>
