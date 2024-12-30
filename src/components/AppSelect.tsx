@@ -49,9 +49,10 @@ const handleSelect = <T,>(setter: (val: T[]) => void, max: number) => {
 type Props<T extends Info | NamedInfo> = {
 	list: T[];
 	current: T[];
-	onChange: (val: T[]) => void;
-	label: string;
 	max?: number;
+	label: string;
+	disabled?: boolean;
+	onChange: (val: T[]) => void;
 	describe: "hide" | "normal" | "join";
 };
 
@@ -62,10 +63,11 @@ const AppSelect = <T extends Info | NamedInfo>({
 	current,
 	onChange,
 	describe = "hide",
+	disabled = false,
 }: Props<T>) => {
 	const theme = useTheme();
 	return (
-		<AppFormControl label={label}>
+		<AppFormControl label={label} disabled={disabled}>
 			<Select
 				labelId={label}
 				id="multi-select"

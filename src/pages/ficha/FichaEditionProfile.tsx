@@ -8,28 +8,19 @@ import BodyText from "../../components/BodyText";
 import { PERFIL } from "../../data/perfil";
 import type { Profile } from "../../models/ProfileDTO";
 import AppToolBar from "../../navigation/AppToolbar";
+import type { Info } from "../../models/InfoDTO";
 
 type Props = {
 	profile: Profile;
 	onProfile: (prof: Partial<Profile>) => void;
 };
 
-const FichaEditionProfile = ({
-	profile: {
-		age,
-		antecedents,
-		description,
-		flaws,
-		objectives,
-		origin,
-		peculiarities,
-		virtues,
-	},
-	onProfile,
-}: Props) => {
-	const handleAge = (
-		evt: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
-	) => {
+const handleAge =
+	(
+		antecedents: Info[],
+		onProfile: (data: { antecedents: Info[]; age: number }) => void,
+	) =>
+	(evt: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
 		const {
 			target: { value },
 		} = evt;
@@ -46,6 +37,23 @@ const FichaEditionProfile = ({
 			age: val,
 		});
 	};
+
+const FichaEditionProfile = ({
+	profile: {
+		age,
+		antecedents,
+		description,
+		flaws,
+		objectives,
+		origin,
+		peculiarities,
+		virtues,
+	},
+	onProfile,
+}: Props) => {
+	const antecedentsLimit = PERFIL.getAntecedents(age);
+	console.log({ antecedentsLimit });
+	const canSelectAntecedents = antecedentsLimit > 0;
 
 	return (
 		<>
@@ -80,11 +88,12 @@ const FichaEditionProfile = ({
 					value={age}
 					aria-label="Idade-input"
 					placeholder="Digite a idade..."
-					onChange={handleAge}
+					onChange={handleAge(antecedents, onProfile)}
 				/>
 				<AppSelect
-					max={PERFIL.getAntecedents(age)}
+					max={antecedentsLimit}
 					current={antecedents}
+					disabled={!canSelectAntecedents}
 					describe="join"
 					label="Antecedentes (2D)"
 					list={PERFIL.antecedentes}

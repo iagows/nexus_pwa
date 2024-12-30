@@ -16,6 +16,7 @@ const AppNumberInput = ({ label, width, ...props }: Props) => {
 				inputMode="numeric"
 				onKeyDown={(evt) => {
 					if (controlKeys.includes(evt.key)) {
+						console.log("oxe");
 						return;
 					}
 				}}

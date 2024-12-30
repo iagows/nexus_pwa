@@ -4,27 +4,27 @@
 		"antecedents": 0
 	},
 	{
-		"from": 11,
+		"from": 10,
 		"to": 16,
 		"antecedents": 1
 	},
 	{
-		"from": 17,
+		"from": 16,
 		"to": 25,
 		"antecedents": 2
 	},
 	{
-		"from": 26,
+		"from": 25,
 		"to": 40,
 		"antecedents": 3
 	},
 	{
-		"from": 41,
+		"from": 40,
 		"to": 60,
 		"antecedents": 4
 	},
 	{
-		"from": 61,
+		"from": 60,
 		"antecedents": 5
 	}
 ]
