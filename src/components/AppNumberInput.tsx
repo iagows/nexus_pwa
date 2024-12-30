@@ -5,10 +5,9 @@ const controlKeys = ["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"];
 
 type Props = {
 	label: string;
-	width?: number;
 } & InputProps;
 
-const AppNumberInput = ({ label, width, ...props }: Props) => {
+const AppNumberInput = ({ label, ...props }: Props) => {
 	return (
 		<AppFormControl label={label}>
 			<Input

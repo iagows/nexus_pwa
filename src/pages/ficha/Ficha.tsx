@@ -27,7 +27,7 @@ const Ficha = () => {
 		},
 		{
 			label: "Dados",
-			content: <FichaEditionBody />,
+			content: <FichaEditionBody ficha={current} />,
 		},
 	];
 

@@ -52,7 +52,6 @@ const FichaEditionProfile = ({
 	onProfile,
 }: Props) => {
 	const antecedentsLimit = PERFIL.getAntecedents(age);
-	console.log({ antecedentsLimit });
 	const canSelectAntecedents = antecedentsLimit > 0;
 
 	return (
@@ -84,7 +83,6 @@ const FichaEditionProfile = ({
 			<FormGroup>
 				<AppNumberInput
 					label="Idade"
-					width={600}
 					value={age}
 					aria-label="Idade-input"
 					placeholder="Digite a idade..."
@@ -139,6 +137,7 @@ const FichaEditionProfile = ({
 						onChange={(d) => onProfile({ description: d.target.value })}
 					/>
 				</AppFormControl>
+				<BodyText>Fazer: validar os valores</BodyText>
 			</FormGroup>
 		</>
 	);
