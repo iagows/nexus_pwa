@@ -66,15 +66,16 @@ const AppSelect = <T extends Info | NamedInfo>({
 	disabled = false,
 }: Props<T>) => {
 	const theme = useTheme();
+	const newLabel = max === -1 ? label : `${label} (${max - current.length})`;
 	return (
-		<AppFormControl label={label} disabled={disabled}>
+		<AppFormControl label={newLabel} disabled={disabled}>
 			<Select
-				labelId={label}
+				labelId={newLabel}
 				id="multi-select"
 				multiple
 				value={current as unknown as T}
 				onChange={handleSelect(onChange, max)}
-				input={<OutlinedInput label={label} />}
+				input={<OutlinedInput label={newLabel} />}
 				MenuProps={MenuProps}
 			>
 				{list.map((datum) => (
@@ -92,7 +93,12 @@ const AppSelect = <T extends Info | NamedInfo>({
 				))}
 			</Select>
 			{describe !== "hide" && (
-				<ProfileMapper data={current} join={describe === "join"} />
+				<ProfileMapper
+					data={list.filter(
+						(item) => current.indexOf(item.id as unknown as T) !== -1,
+					)}
+					join={describe === "join"}
+				/>
 			)}
 		</AppFormControl>
 	);

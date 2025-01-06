@@ -6,19 +6,20 @@ import {
 	StepContent,
 	StepLabel,
 	Stepper,
+	type SxProps,
+	type Theme,
 } from "@mui/material";
-import type { PropsWithChildren } from "react";
 import useAppNavigate, { ParamName } from "../../hooks/useAppNavigate";
-import useEditFicha from "../../stores/slices/edit/useEditFicha";
+import useEditFicha, {
+	isProfileValid,
+} from "../../stores/slices/edit/useEditFicha";
 import FichaEditionBody from "./FichaEditionBody";
 import FichaEditionProfile from "./FichaEditionProfile";
 import FichaView from "./FichaView";
 
-const LocalPaper = ({ children }: PropsWithChildren) => (
-	<Paper sx={{ padding: "1em 2em" }} variant="outlined">
-		{children}
-	</Paper>
-);
+const PAPER_CSS: SxProps<Theme> = {
+	padding: "1em 2em",
+};
 
 const Ficha = () => {
 	const { getParam } = useAppNavigate();
@@ -48,7 +49,9 @@ const Ficha = () => {
 							<Step key={s.label}>
 								<StepLabel>{s.label}</StepLabel>
 								<StepContent>
-									<LocalPaper>{s.content}</LocalPaper>
+									<Paper sx={PAPER_CSS} variant="outlined">
+										{s.content}
+									</Paper>
 								</StepContent>
 							</Step>
 						))}
@@ -56,7 +59,10 @@ const Ficha = () => {
 					<Button disabled={step === 0} onClick={goToPreviousStep}>
 						Voltar
 					</Button>
-					<Button disabled={step > 0} onClick={goToNextStep}>
+					<Button
+						disabled={step > 0 || !isProfileValid(current.profile)}
+						onClick={goToNextStep}
+					>
 						Próximo
 					</Button>
 				</Box>

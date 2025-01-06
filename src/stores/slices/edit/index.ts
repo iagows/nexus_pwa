@@ -17,7 +17,6 @@ const slice = createSlice({
 			};
 		},
 		nextStep: (state) => {
-			console.log("vai", state.step);
 			state.step = state.step + 1;
 		},
 		prevStep: (state) => {

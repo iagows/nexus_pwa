@@ -57,13 +57,6 @@ const FichaEditionProfile = ({
 	return (
 		<>
 			<AppToolBar title="Edição - Perfil" />
-			<BodyText sx={{ display: "flex", alignItems: "center" }}>
-				Lembre-se que o narrador deve aprovar{" "}
-				<AppTooltip
-					title="Por que o Narrador deve aprovar?"
-					text="NEXUS é um sistema genérico, criado para abranger inúmeros estilos de jogo. Mas o Narrador é quem vai determinar onde a aventura se passa e os personagens devem fazer sentido no mundo que ele está criando."
-				/>
-			</BodyText>
 
 			<Grid2
 				container
@@ -74,6 +67,15 @@ const FichaEditionProfile = ({
 					alignItems: "stretch",
 				}}
 			>
+				<Grid2 size="grow">
+					<BodyText sx={{ display: "flex", alignItems: "center" }}>
+						Lembre-se que o narrador deve aprovar{" "}
+						<AppTooltip
+							title="Por que o Narrador deve aprovar?"
+							text="NEXUS é um sistema genérico, criado para abranger inúmeros estilos de jogo. Mas o Narrador é quem vai determinar onde a aventura se passa e os personagens devem fazer sentido no mundo que ele está criando."
+						/>
+					</BodyText>
+				</Grid2>
 				<Grid2 size={12}>
 					<FormGroup>
 						<AppFormControl>
@@ -88,7 +90,7 @@ const FichaEditionProfile = ({
 						max={1}
 						current={origin}
 						describe={"hide"}
-						label="Origem (2D)"
+						label="Origem"
 						list={PERFIL.origem}
 						onChange={(o) => onProfile({ origin: o })}
 					/>
@@ -108,7 +110,7 @@ const FichaEditionProfile = ({
 						current={antecedents}
 						disabled={!canSelectAntecedents}
 						describe="join"
-						label="Antecedentes (2D)"
+						label="Antecedentes"
 						list={PERFIL.antecedentes}
 						onChange={(a) => onProfile({ antecedents: a })}
 					/>
@@ -118,7 +120,7 @@ const FichaEditionProfile = ({
 						max={1}
 						current={objectives}
 						describe={"normal"}
-						label="Objetivo (1D)"
+						label="Objetivo"
 						list={PERFIL.objetivos}
 						onChange={(o) => onProfile({ objectives: o })}
 					/>
@@ -128,7 +130,7 @@ const FichaEditionProfile = ({
 						max={1}
 						current={virtues}
 						describe={"normal"}
-						label="Virtude (1D)"
+						label="Virtude"
 						list={PERFIL.virtudes}
 						onChange={(v) => onProfile({ virtues: v })}
 					/>
@@ -138,7 +140,7 @@ const FichaEditionProfile = ({
 						max={1}
 						current={flaws}
 						describe={"normal"}
-						label="Defeito (1D)"
+						label="Defeito"
 						list={PERFIL.defeitos}
 						onChange={(f) => onProfile({ flaws: f })}
 					/>
@@ -147,7 +149,7 @@ const FichaEditionProfile = ({
 					<AppSelect
 						current={peculiarities}
 						describe={"join"}
-						label="Peculiaridades (4D)"
+						label="Peculiaridades"
 						list={PERFIL.peculiaridades}
 						onChange={(p) => onProfile({ peculiarities: p })}
 					/>
@@ -163,7 +165,6 @@ const FichaEditionProfile = ({
 						/>
 					</AppFormControl>
 				</Grid2>
-				<BodyText>Fazer: validar os valores</BodyText>
 			</Grid2>
 		</>
 	);
