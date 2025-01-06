@@ -34,6 +34,9 @@ const useEditFicha = (): Out => {
 	};
 
 	const setProfile = (profile: Partial<Profile>): void => {
+		console.log({
+			profile,
+		});
 		setCurrent({
 			...current,
 			profile: {

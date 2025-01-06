@@ -6,9 +6,10 @@ import AppSelect from "../../components/AppSelect";
 import AppTooltip from "../../components/AppTooltip";
 import BodyText from "../../components/BodyText";
 import { PERFIL } from "../../data/perfil";
+import type { Info } from "../../models/InfoDTO";
 import type { Profile } from "../../models/ProfileDTO";
 import AppToolBar from "../../navigation/AppToolbar";
-import type { Info } from "../../models/InfoDTO";
+import { getRandomElements, randomRange } from "../../util/functions";
 
 type Props = {
 	profile: Profile;
@@ -37,6 +38,24 @@ const handleAge =
 			age: val,
 		});
 	};
+
+type RandomizedProfile = {
+	[K in keyof Partial<Profile>]: number[] | number;
+};
+
+export const randomizeProfile = (): RandomizedProfile => {
+	const age = randomRange(20, 100);
+	const antecedentsAmount = PERFIL.getAntecedents(age);
+	return {
+		origin: getRandomElements(PERFIL.origem),
+		age,
+		antecedents: getRandomElements(PERFIL.antecedentes, antecedentsAmount),
+		flaws: getRandomElements(PERFIL.defeitos),
+		objectives: getRandomElements(PERFIL.objetivos),
+		virtues: getRandomElements(PERFIL.virtudes),
+		peculiarities: getRandomElements(PERFIL.peculiaridades, randomRange(1, 6)),
+	};
+};
 
 const FichaEditionProfile = ({
 	profile: {
@@ -79,7 +98,12 @@ const FichaEditionProfile = ({
 				<Grid2 size={12}>
 					<FormGroup>
 						<AppFormControl>
-							<Button type="button" disabled>
+							<Button
+								type="button"
+								onClick={() => {
+									onProfile(randomizeProfile() as unknown as Profile);
+								}}
+							>
 								Sortear
 							</Button>
 						</AppFormControl>
@@ -92,7 +116,9 @@ const FichaEditionProfile = ({
 						describe={"hide"}
 						label="Origem"
 						list={PERFIL.origem}
-						onChange={(o) => onProfile({ origin: o })}
+						onChange={(o) => {
+							onProfile({ origin: o });
+						}}
 					/>
 				</Grid2>
 				<Grid2 size={{ xs: "grow", sm: 6 }}>

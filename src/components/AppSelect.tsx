@@ -1,5 +1,4 @@
 import {
-	InputLabel,
 	MenuItem,
 	OutlinedInput,
 	Select,
@@ -67,6 +66,8 @@ const AppSelect = <T extends Info | NamedInfo>({
 }: Props<T>) => {
 	const theme = useTheme();
 	const newLabel = max === -1 ? label : `${label} (${max - current.length})`;
+
+	console.log(current);
 	return (
 		<AppFormControl label={newLabel} disabled={disabled}>
 			<Select
