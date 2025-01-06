@@ -4,7 +4,7 @@ import NamedInfoDTO from "./NamedInfoDTO";
 
 const ProfileDTO = z.object({
 	age: z.number(),
-	description: z.string(),
+	details: z.string(),
 	origin: z.array(InfoDTO),
 	antecedents: z.array(InfoDTO),
 	objectives: z.array(NamedInfoDTO),

@@ -1,16 +1,24 @@
 import {
 	Box,
 	Button,
+	Paper,
 	Step,
 	StepContent,
 	StepLabel,
 	Stepper,
 } from "@mui/material";
+import type { PropsWithChildren } from "react";
 import useAppNavigate, { ParamName } from "../../hooks/useAppNavigate";
 import useEditFicha from "../../stores/slices/edit/useEditFicha";
 import FichaEditionBody from "./FichaEditionBody";
 import FichaEditionProfile from "./FichaEditionProfile";
 import FichaView from "./FichaView";
+
+const LocalPaper = ({ children }: PropsWithChildren) => (
+	<Paper sx={{ padding: "1em 2em" }} variant="outlined">
+		{children}
+	</Paper>
+);
 
 const Ficha = () => {
 	const { getParam } = useAppNavigate();
@@ -39,7 +47,9 @@ const Ficha = () => {
 						{steps.map((s) => (
 							<Step key={s.label}>
 								<StepLabel>{s.label}</StepLabel>
-								<StepContent>{s.content}</StepContent>
+								<StepContent>
+									<LocalPaper>{s.content}</LocalPaper>
+								</StepContent>
 							</Step>
 						))}
 					</Stepper>

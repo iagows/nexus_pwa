@@ -44,7 +44,7 @@ const FichaCard = ({ ficha }: Props) => {
 						{ficha.nome}
 					</Typography>
 					<Typography variant="body2" sx={CARD_DESCRIPTION_CSS}>
-						{ficha.profile.description}
+						{ficha.profile.details}
 					</Typography>
 				</CardContent>
 			</CardActionArea>

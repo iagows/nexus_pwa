@@ -16,7 +16,7 @@ const fichaFactory = (): Ficha => {
 			origin: [],
 			objectives: [],
 			antecedents: [],
-			description: "",
+			details: "",
 			virtues: [],
 			flaws: [],
 			peculiarities: [],

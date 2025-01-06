@@ -8,7 +8,7 @@ import {
 
 const FORM_CSS: SxProps<Theme> = {
 	m: 1,
-	width: 600,
+	width: 300,
 };
 
 type Props = {

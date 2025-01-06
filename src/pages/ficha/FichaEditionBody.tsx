@@ -12,7 +12,7 @@ const FichaEditionBody = ({ ficha }: Props) => {
 	return (
 		<>
 			<AppToolBar title="Edição - Dados" />
-			<BodyText>{ficha.profile.description}</BodyText>
+			<BodyText>{ficha.profile.details}</BodyText>
 			<FormGroup>
 				<AppFormControl label="Nome">
 					<Input inputMode="text" />
